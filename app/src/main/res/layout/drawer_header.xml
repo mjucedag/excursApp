@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="178dp"
+    android:orientation="vertical"
+    android:background="@drawable/side_nav_bar"
+    android:paddingLeft="10dp"
+    android:paddingTop="30dp">
+    <ImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="231dp"
+        android:layout_height="100dp"
+        android:contentDescription="TODO"
+        app:srcCompat="@drawable/iconocompleto" />
+</LinearLayout>

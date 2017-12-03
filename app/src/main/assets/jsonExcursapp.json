@@ -1,0 +1,206 @@
+{
+	"profesor" :[
+		{
+			"id" : 1,
+			"nombre" : "Martinez, Pepe"
+		},
+		{	"id" : 2,
+			"nombre": "López, Juanma"
+		},
+		{
+			"id" : 3,
+			"nombre": "González, María"
+		},
+		{
+			"id" : 4,
+			"nombre": "Pérez, Antonio"
+		},
+		{
+			"id" : 5,
+			"nombre": "Ruíz, Rosa"
+		},
+		{
+			"id" : 6,
+			"nombre": "Rodríguez, Miguel"
+		},
+		{
+			"id" : 7,
+			"nombre": "Moreno, Pedro"
+		},
+		{
+			"id" : 8,
+			"nombre": "Flores, Amparo"
+		},
+		{
+			"id" : 9,
+			"nombre": "Fernández, Aurora"
+		},
+		{
+			"id" : 10,
+			"nombre": "González, María"
+		},
+		{
+			"id" : 11,
+			"nombre": "Muñoz, Gerónimo"
+		},
+		{
+			"id" : 12,
+			"nombre": "López, Javier"
+		},
+		{
+			"id" : 13,
+			"nombre": "Martín, Felipe"
+		}
+	],
+	"grupo":[
+		{
+			"id" : 1,
+			"nombre" : "1º ESO A"
+		},
+		{
+			"id" : 2,
+			"nombre" : "1º ESO B"
+		},
+		{	"id" : 3,
+			"nombre" : "2º ESO A"
+		},
+		{	"id" : 4,
+			"nombre" : "2º ESO B"
+		},
+		{	"id" : 5,
+			"nombre" : "3º ESO A"
+		},
+		{	"id" : 6,
+			"nombre" : "3º ESO B"
+		},
+		{	"id" : 7,
+			"nombre" : "4º ESO A"
+		},
+		{	"id" : 8,
+			"nombre" : "4º ESO B"
+		},
+		{	"id" : 9,
+			"nombre" : "2º DAM"
+		}
+	],
+	"actividad" : [
+		{
+			"id" : 1,
+			"img": "alhambra.jpeg",
+			"titulo":"Visita a la Alhambra",
+			"idprofesor":[1,2],
+			"idgrupo": [1,2,3,4],
+			"lugar": "Granada",
+			"direccion": "C/ Antequera baja",
+			"fechasalida": "23-9-2017",
+			"horasalida": "9:00",
+			"horallegada": "14:00",
+			"descripcion":"Visita a los parques del Generalife, Patio de los Leones y a los distintos departamentos del Palacio de la Alhambra"
+
+		},
+		{
+			"id" : 2,
+			"img": "aplicaciones.jpeg",
+			"titulo":"Curso de aplicaciones Zaidín Vergeles",
+			"idprofesor":[3,5],
+			"idgrupo": [1,2,3,4,5,6],
+			"lugar": "Granada",
+			"direccion": "C/ Primavera",
+			"fechasalida": "16-12-2017",
+			"horasalida": "9:00",
+			"horallegada": "14:00",
+			"descripcion":"Creación de una app e introducción a Material Design"
+		},
+		{
+			"id" : 3,
+			"img": "devfest.png",
+			"titulo":"DEVFEST",
+			"idprofesor":[9],
+			"idgrupo": [9,5,2],
+			"lugar": "Granada",
+			"direccion": "C/ Periodista Daniel Saucedo Aranda",
+			"fechasalida": "9-11-2017",
+			"horasalida": "10:00",
+			"horallegada": "14:00",
+			"descripcion":"Visita a los distintos talleres y conferencias del Devfest en la Facultad de Informática"
+		},
+		{
+			"id" : 4,
+			"img": "futbol.png",
+			"titulo":"Partido de fútbol Granada-Levante",
+			"idprofesor":[13,4,6,9],
+			"idgrupo": [4,5,6,7,8],
+			"lugar": "Granada",
+			"direccion": "C/ Pintor Manuel Maldonado",
+			"fechasalida": "25-2-2018",
+			"horasalida": "12:00",
+			"horallegada": "15:00",
+			"descripcion":"Visita al Estadio nuevo los Cármenes para ver el partido de fútbol disputado entre el Granada FC y el Levante"
+		},
+		{
+			"id" : 5,
+			"img": "parqueciencias.jpg",
+			"titulo":"Parque de las Ciencias",
+			"idprofesor":[5,10,8],
+			"idgrupo": [1,2,3],
+			"lugar": "Granada",
+			"direccion": "Avda de la Ciencia",
+			"fechasalida": "14-12-2017",
+			"horasalida": "9:00",
+			"horallegada": "16:00",
+			"descripcion":"Visita guiada al Parque de las Ciencias, con entrada al Biodomo y al Planetario"
+		},
+		{
+			"id" : 6,
+			"img": "ptmalaga.jpeg",
+			"titulo":"PTA MÁLAGA",
+			"idprofesor":[5,13,6],
+			"idgrupo": [9],
+			"lugar": "Campanillas (Málaga)",
+			"direccion": "Avda Juan López de Peñalber",
+			"fechasalida": "5-3-2018",
+			"horasalida": "8:00",
+			"horallegada": "19:00",
+			"descripcion":"Visita a las distintas empresas de Informática en el Parque Tecnológico de Andalucía"
+		},
+		{
+			"id" : 7,
+			"img": "robotica.jpg",
+			"titulo":"Exposición de Robótica",
+			"idprofesor":[10,7,4],
+			"idgrupo": [8,9],
+			"lugar": "Armilla (Granada)",
+			"direccion": "Ctra Armilla ",
+			"fechasalida": "17-1-2018",
+			"horasalida": "9:00",
+			"horallegada": "15:00",
+			"descripcion":"Visita a la exposición de robótica en la Feria de Muestras de Armilla"
+		},
+		{
+			"id" : 8,
+			"img": "senderismo.jpeg",
+			"titulo":"Pantano de Cubillas",
+			"idprofesor":[7,4,2,9],
+			"idgrupo": [6,7,8,3],
+			"lugar": "Granada",
+			"direccion": "Ctra Bailén Motril",
+			"fechasalida": "9-5-2018",
+			"horasalida": "9:00",
+			"horallegada": "15:00",
+			"descripcion":"Ruta de senderismo en el Pantano de Cubillas, con distintas actividades a realizar como tirolina, ginkana, etc"
+		},
+		{
+			"id" : 9,
+			"img": "sierranevada.JPG",
+			"titulo":"Sierra Nevada",
+			"idprofesor":[4,8,9,2,7,12],
+			"idgrupo": [1,2,3,4,5,6],
+			"lugar": "Granada",
+			"direccion": "C/ Virgen de las Nieves",
+			"fechasalida": "21-1-2018",
+			"horasalida": "7:00",
+			"horallegada": "19:00",
+			"descripcion":"Excursión a Sierra Nevada con distintas actividades a realizar como esquí, snow, patinaje sobre hielo, etc."
+		}
+	]
+}

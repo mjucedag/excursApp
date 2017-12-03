@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ExcursApp</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="home">Home</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <string name="NDW_crearActividad">Crear Actividad</string>
+    <string name="NDW_filtro">Consulta de Actividades</string>
+    <string name="NDW_grupo">Por grupo</string>
+    <string name="NDW_fecha">Por Fecha</string>
+    <string name="NDW_ayuda">Ayuda</string>
+
+    <string name="crear"><b>Crear Actividad</b></string>
+
+
+</resources>
