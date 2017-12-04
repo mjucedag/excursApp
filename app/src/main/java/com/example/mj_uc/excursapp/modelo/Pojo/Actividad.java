@@ -1,13 +1,22 @@
 package com.example.mj_uc.excursapp.modelo.Pojo;
 
-import android.support.annotation.NonNull;
+import android.os.Parcel;
+import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Actividad {
+public class Actividad implements Parcelable {
 
     private int id;
-    private String img,titulo,lugar,direccion,fechasalida,horasalida,horallegada,descripcion;
+    private String img;
+    private String titulo;
+    private String lugar;
+    private String direccion;
+    private String fechasalida;
+    private String horasalida;
+    private String horallegada;
+    private String descripcion;
     private List<Integer> idprofesor;
     private List<Integer> idgrupo;
 
@@ -168,4 +177,71 @@ public class Actividad {
         result = 31 * result + idgrupo.hashCode();
         return result;
     }
+
+    protected Actividad(Parcel in) {
+        id = in.readInt();
+        img = in.readString();
+        titulo = in.readString();
+        lugar = in.readString();
+        direccion = in.readString();
+        fechasalida = in.readString();
+        horasalida = in.readString();
+        horallegada = in.readString();
+        descripcion = in.readString();
+        if (in.readByte() == 0x01) {
+            idprofesor = new ArrayList<Integer>();
+            in.readList(idprofesor, Integer.class.getClassLoader());
+        } else {
+            idprofesor = null;
+        }
+        if (in.readByte() == 0x01) {
+            idgrupo = new ArrayList<Integer>();
+            in.readList(idgrupo, Integer.class.getClassLoader());
+        } else {
+            idgrupo = null;
+        }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(img);
+        dest.writeString(titulo);
+        dest.writeString(lugar);
+        dest.writeString(direccion);
+        dest.writeString(fechasalida);
+        dest.writeString(horasalida);
+        dest.writeString(horallegada);
+        dest.writeString(descripcion);
+        if (idprofesor == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(idprofesor);
+        }
+        if (idgrupo == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(idgrupo);
+        }
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Actividad> CREATOR = new Parcelable.Creator<Actividad>() {
+        @Override
+        public Actividad createFromParcel(Parcel in) {
+            return new Actividad(in);
+        }
+
+        @Override
+        public Actividad[] newArray(int size) {
+            return new Actividad[size];
+        }
+    };
 }

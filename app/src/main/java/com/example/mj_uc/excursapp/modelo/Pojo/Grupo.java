@@ -1,8 +1,9 @@
 package com.example.mj_uc.excursapp.modelo.Pojo;
 
-import android.support.annotation.NonNull;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Grupo {
+public class Grupo implements Parcelable {
 
     private int id;
     private String nombre;
@@ -57,4 +58,33 @@ public class Grupo {
         return result;
     }
 
+
+    protected Grupo(Parcel in) {
+        id = in.readInt();
+        nombre = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(nombre);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Grupo> CREATOR = new Parcelable.Creator<Grupo>() {
+        @Override
+        public Grupo createFromParcel(Parcel in) {
+            return new Grupo(in);
+        }
+
+        @Override
+        public Grupo[] newArray(int size) {
+            return new Grupo[size];
+        }
+    };
 }

@@ -1,8 +1,9 @@
 package com.example.mj_uc.excursapp.modelo.Pojo;
 
-import android.support.annotation.NonNull;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Profesor {
+public class Profesor implements Parcelable {
 
     private int id;
     private String nombre;
@@ -57,4 +58,31 @@ public class Profesor {
         return result;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.id);
+        dest.writeString(this.nombre);
+    }
+
+    protected Profesor(Parcel in) {
+        this.id = in.readInt();
+        this.nombre = in.readString();
+    }
+
+    public static final Parcelable.Creator<Profesor> CREATOR = new Parcelable.Creator<Profesor>() {
+        @Override
+        public Profesor createFromParcel(Parcel source) {
+            return new Profesor(source);
+        }
+
+        @Override
+        public Profesor[] newArray(int size) {
+            return new Profesor[size];
+        }
+    };
 }
