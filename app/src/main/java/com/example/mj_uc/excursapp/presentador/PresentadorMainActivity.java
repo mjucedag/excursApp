@@ -1,7 +1,7 @@
 package com.example.mj_uc.excursapp.presentador;
 
 import com.example.mj_uc.excursapp.MainActivity;
-import com.example.mj_uc.excursapp.contrato.Contrato;
+import com.example.mj_uc.excursapp.contrato.ContratoMainActivity;
 import com.example.mj_uc.excursapp.modelo.Album;
 import com.example.mj_uc.excursapp.modelo.Pojo.Actividad;
 import com.example.mj_uc.excursapp.modelo.Pojo.ObjectJson;
@@ -16,12 +16,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Presentador implements Contrato.Presentador {
+public class PresentadorMainActivity implements ContratoMainActivity.Presentador {
 
-    private Contrato.Vista vista;
+    private ContratoMainActivity.Vista vista;
 
     @Override
-    public void setVista(Contrato.Vista vista) {
+    public void setVista(ContratoMainActivity.Vista vista) {
         this.vista = vista;
     }
 

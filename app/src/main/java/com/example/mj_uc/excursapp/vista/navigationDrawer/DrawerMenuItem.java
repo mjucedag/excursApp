@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mj_uc.excursapp.R;
-import com.example.mj_uc.excursapp.vista.Help;
+import com.example.mj_uc.excursapp.vista.Help.Help;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;

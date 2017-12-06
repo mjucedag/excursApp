@@ -23,9 +23,9 @@
             android:name=".MainActivity"
             android:label="Actividades"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".vista.Help" />
-        <activity android:name=".vista.HelpCreate" />
-        <activity android:name=".vista.HelpSearch"></activity>
+        <activity android:name=".vista.Help.Help" />
+        <activity android:name=".vista.Help.HelpCreate" />
+        <activity android:name=".vista.Help.HelpSearch"></activity>
     </application>
 
 </manifest>

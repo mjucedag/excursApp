@@ -2,10 +2,13 @@ package com.example.mj_uc.excursapp.contrato;
 
 import com.example.mj_uc.excursapp.modelo.Pojo.ObjectJson;
 
-public interface Contrato {
+public interface ContratoMainActivity {
 
     interface Vista {
-
+        void initializeFabButton();
+        void showTextInToolBar();
+        void setupDrawer();
+        void initializeRecyclerView();
     }
 
     interface Presentador {

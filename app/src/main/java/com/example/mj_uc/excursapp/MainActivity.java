@@ -1,7 +1,6 @@
 package com.example.mj_uc.excursapp;
 
 import android.content.res.Resources;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -19,10 +18,11 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.example.mj_uc.excursapp.contrato.Contrato;
+import com.example.mj_uc.excursapp.contrato.ContratoMainActivity;
 import com.example.mj_uc.excursapp.dagger.MainModule;
 import com.example.mj_uc.excursapp.modelo.Album;
 import com.example.mj_uc.excursapp.modelo.Adapter.AlbumAdapter;
+import com.example.mj_uc.excursapp.vista.GridSpacingItemDecoration;
 import com.example.mj_uc.excursapp.vista.navigationDrawer.DrawerHeader;
 import com.example.mj_uc.excursapp.vista.navigationDrawer.DrawerMenuItem;
 import com.mindorks.placeholderview.PlaceHolderView;
@@ -34,7 +34,7 @@ import javax.inject.Inject;
 
 import dagger.ObjectGraph;
 
-public class MainActivity extends AppCompatActivity implements Contrato.Vista{
+public class MainActivity extends AppCompatActivity implements ContratoMainActivity.Vista{
 
     private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
     private RecyclerView recyclerView;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements Contrato.Vista{
     private NestedScrollView nestedScrollView;
 
     @Inject
-    Contrato.Presentador presentador;
+    ContratoMainActivity.Presentador presentador;
 
     public AlbumAdapter getAdapter() {
         return adapter;
@@ -76,7 +76,9 @@ public class MainActivity extends AppCompatActivity implements Contrato.Vista{
         mDrawerView = (PlaceHolderView) findViewById(R.id.drawerView);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         nestedScrollView = (NestedScrollView) findViewById(R.id.scroll_view);
-
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        albumList = new ArrayList<>();
+        adapter = new AlbumAdapter(this, albumList);
 
         showTextInToolBar();
         setupDrawer();
@@ -101,16 +103,7 @@ public class MainActivity extends AppCompatActivity implements Contrato.Vista{
          }*/
 
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
-        albumList = new ArrayList<>();
-        adapter = new AlbumAdapter(this, albumList);
-
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 1);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
+        initializeRecyclerView();
 
         presentador.prepareAlbums();
 
@@ -124,7 +117,17 @@ public class MainActivity extends AppCompatActivity implements Contrato.Vista{
         initializeFabButton();
     }
 
-    private void initializeFabButton() {
+    @Override
+    public void initializeRecyclerView() {
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 1);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void initializeFabButton() {
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
         nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
@@ -148,7 +151,8 @@ public class MainActivity extends AppCompatActivity implements Contrato.Vista{
         });
     }
 
-    private void showTextInToolBar() {
+    @Override
+    public void showTextInToolBar() {
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
@@ -171,7 +175,8 @@ public class MainActivity extends AppCompatActivity implements Contrato.Vista{
         });
     }
 
-    private void setupDrawer() {
+    @Override
+    public void setupDrawer() {
         mDrawerView
                 .addView(new DrawerHeader())
                 .addView(new DrawerMenuItem(this.getApplicationContext(), DrawerMenuItem.DRAWER_MENU_NAV_ADD))
@@ -197,40 +202,6 @@ public class MainActivity extends AppCompatActivity implements Contrato.Vista{
         drawerToggle.syncState();
     }
 
-    /*recyclerview  item decoration da igual margen alrededor del grid item*/
-    public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
-        private int spanCount;
-        private int spacing;
-        private boolean includeEdge;
-
-        public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
-            this.spanCount = spanCount;
-            this.spacing = spacing;
-            this.includeEdge = includeEdge;
-        }
-
-        @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-            int position = parent.getChildAdapterPosition(view); //item position
-            int column = position % spanCount; //item column
-
-            if (includeEdge) {
-                outRect.left = spacing - column * spacing / spanCount;
-                outRect.right = (column + 1) * spacing / spanCount;
-
-                if (position < spanCount) {
-                    outRect.top = spacing;
-                }
-                outRect.bottom = spacing;
-            } else {
-                outRect.left = column * spacing / spanCount;
-                outRect.right = spacing - (column + 1) * spacing / spanCount;
-                if (position >= spanCount) {
-                    outRect.top = spacing;
-                }
-            }
-        }
-    }
 
     /*convert dp a pixel*/
     private int dpToPx(int dp) {

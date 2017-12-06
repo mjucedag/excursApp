@@ -3,15 +3,15 @@ package com.example.mj_uc.excursapp.dagger;
 import dagger.Module;
 import dagger.Provides;
 import com.example.mj_uc.excursapp.MainActivity;
-import com.example.mj_uc.excursapp.contrato.Contrato;
-import com.example.mj_uc.excursapp.presentador.Presentador;
+import com.example.mj_uc.excursapp.contrato.ContratoMainActivity;
+import com.example.mj_uc.excursapp.presentador.PresentadorMainActivity;
 
 @Module(injects = {MainActivity.class})
 public class MainModule {
 
     @Provides
-    public Contrato.Presentador provideMainActivityPresenter(){
-        return new Presentador();
+    public ContratoMainActivity.Presentador provideMainActivityPresenter(){
+        return new PresentadorMainActivity();
     }
 }
 

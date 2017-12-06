@@ -1,4 +1,4 @@
-package com.example.mj_uc.excursapp.vista;
+package com.example.mj_uc.excursapp.vista.Help;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
