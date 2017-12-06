@@ -1,4 +1,4 @@
-package com.example.mj_uc.excursapp.vista;
+package com.example.mj_uc.excursapp.vista.RecycleViewTools;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;

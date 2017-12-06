@@ -22,7 +22,7 @@ import com.example.mj_uc.excursapp.contrato.ContratoMainActivity;
 import com.example.mj_uc.excursapp.dagger.MainModule;
 import com.example.mj_uc.excursapp.modelo.Album;
 import com.example.mj_uc.excursapp.modelo.Adapter.AlbumAdapter;
-import com.example.mj_uc.excursapp.vista.GridSpacingItemDecoration;
+import com.example.mj_uc.excursapp.vista.RecycleViewTools.GridSpacingItemDecoration;
 import com.example.mj_uc.excursapp.vista.navigationDrawer.DrawerHeader;
 import com.example.mj_uc.excursapp.vista.navigationDrawer.DrawerMenuItem;
 import com.mindorks.placeholderview.PlaceHolderView;
