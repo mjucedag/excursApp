@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity implements Contrato.Vista{
         objectGraph.inject(this);
 
         presentador.setVista(this);
-        presentador.setContext(this);
 
         //*****
         mDrawer = (DrawerLayout) findViewById(R.id.drawerLayout);

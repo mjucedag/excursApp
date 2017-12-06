@@ -19,8 +19,6 @@ import java.util.List;
 public class Presentador implements Contrato.Presentador {
 
     private Contrato.Vista vista;
-    private MainActivity mainActivity;
-
 
     @Override
     public void setVista(Contrato.Vista vista) {
@@ -28,15 +26,14 @@ public class Presentador implements Contrato.Presentador {
     }
 
     @Override
-    public void setContext(MainActivity mainActivity) {
-        this.mainActivity = mainActivity;
-    }
-
-    @Override
     public void prepareAlbums() {
+
+        MainActivity mainActivity = (MainActivity) vista;
+        JsonReader jsonReader = null;
+
         try {
 
-            JsonReader jsonReader = new JsonReader(new InputStreamReader(mainActivity.getAssets().open("jsonExcursapp.json"))); //creamos el fichero
+            jsonReader = new JsonReader(new InputStreamReader(mainActivity.getAssets().open("jsonExcursapp.json"))); //creamos el fichero
             ObjectJson objectJsons = new Gson().fromJson(jsonReader, ObjectJson.class); //leemos el fichero JSON y lo almacenamos en el objeto
             List<Album> albumOrdenadoFecha= new ArrayList<>();
 
@@ -64,6 +61,14 @@ public class Presentador implements Contrato.Presentador {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if(jsonReader != null){
+                try {
+                    jsonReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         mainActivity.getAdapter().notifyDataSetChanged();
     }
