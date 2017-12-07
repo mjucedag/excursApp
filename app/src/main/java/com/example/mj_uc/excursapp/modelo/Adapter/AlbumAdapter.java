@@ -13,8 +13,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.mj_uc.excursapp.R;
+import com.example.mj_uc.excursapp.Tools.Tools;
 import com.example.mj_uc.excursapp.modelo.Album;
-import com.example.mj_uc.excursapp.vista.VistaPrincipal;
+import com.example.mj_uc.excursapp.vista.VerActividad;
 
 import java.util.List;
 
@@ -54,13 +55,13 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
         holder.count.setText(album.getProfesor());
         holder.date.setText(album.getFecha());
 
-        int resourceId = mc.getResources().getIdentifier(removeExtension(album.getImagen()), "drawable", mc.getPackageName());
+        int resourceId = mc.getResources().getIdentifier(Tools.removeExtension(album.getImagen()), "drawable", mc.getPackageName());
 
         Glide.with(mc).load(resourceId).into(holder.thumbnail);
 
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(mc, VistaPrincipal.class);
+                Intent intent = new Intent(mc, VerActividad.class);
                 intent.putExtra("ID_ACTIVIDAD", album.getId());
                 mc.startActivity(intent);
             }
@@ -78,8 +79,4 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
 
     @Override
     public int getItemCount(){ return albumList.size();}
-
-    public String removeExtension(String fileName){
-        return fileName.substring(0, fileName.lastIndexOf('.'));
-    }
 }

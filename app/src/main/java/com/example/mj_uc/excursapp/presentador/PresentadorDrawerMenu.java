@@ -10,7 +10,7 @@ import android.widget.ListView;
 import com.example.mj_uc.excursapp.MainActivity;
 import com.example.mj_uc.excursapp.R;
 import com.example.mj_uc.excursapp.contrato.ContratoDrawerMenu;
-import com.example.mj_uc.excursapp.json.JsonTool;
+import com.example.mj_uc.excursapp.Tools.JsonTool;
 import com.example.mj_uc.excursapp.modelo.Pojo.Actividad;
 import com.example.mj_uc.excursapp.modelo.Pojo.Grupo;
 import com.example.mj_uc.excursapp.modelo.Pojo.ObjectJson;

@@ -2,17 +2,12 @@ package com.example.mj_uc.excursapp.presentador;
 
 import com.example.mj_uc.excursapp.MainActivity;
 import com.example.mj_uc.excursapp.contrato.ContratoMainActivity;
-import com.example.mj_uc.excursapp.json.JsonTool;
+import com.example.mj_uc.excursapp.Tools.JsonTool;
 import com.example.mj_uc.excursapp.modelo.Album;
 import com.example.mj_uc.excursapp.modelo.Pojo.Actividad;
 import com.example.mj_uc.excursapp.modelo.Pojo.ObjectJson;
 import com.example.mj_uc.excursapp.modelo.Pojo.Profesor;
-import com.google.gson.Gson;
-import com.google.gson.stream.JsonReader;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

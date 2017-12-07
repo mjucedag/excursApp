@@ -1,4 +1,4 @@
-package com.example.mj_uc.excursapp.json;
+package com.example.mj_uc.excursapp.Tools;
 
 import android.content.Context;
 
