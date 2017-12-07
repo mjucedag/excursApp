@@ -12,6 +12,6 @@ public interface ContratoDrawerMenu {
         void onDateQueryMenuSelected();
         void onHelpMenuSelected();
         void setMainActivity(MainActivity mainActivity);
-        void createAlertDialog(List<CharSequence> list);
+        void createAlertDialog(List<CharSequence> list, String title);
     }
 }

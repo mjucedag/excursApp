@@ -36,7 +36,7 @@ public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador {
         for (Grupo g : grupos) {
             list.add(g.getNombre());
         }
-        createAlertDialog(list);
+        createAlertDialog(list, "Selecciona uno o más grupos");
     }
 
     @Override
@@ -66,7 +66,7 @@ public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador {
             e.printStackTrace();
         }
 
-        createAlertDialog(list);
+        createAlertDialog(list, "Selecciona una o más fechas");
     }
 
     @Override
@@ -81,11 +81,12 @@ public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador {
     }
 
     @Override
-    public void createAlertDialog(List<CharSequence> list) {
+    public void createAlertDialog(List<CharSequence> list, String title) {
         // Initialize  readable sequence of char values
         final CharSequence[] dialogList = list.toArray(new CharSequence[list.size()]);
         final AlertDialog.Builder builderDialog = new AlertDialog.Builder(mainActivity, AlertDialog.THEME_HOLO_LIGHT);
-        builderDialog.setTitle("Selecciona grupo/s");
+        builderDialog.setTitle(title);
+        builderDialog.setIcon(R.drawable.ic_search_black_24dp);
         int count = dialogList.length;
         boolean[] is_checked = new boolean[count]; // set is_checked boolean false;
         // Creating multiple selection by using setMutliChoiceItem method
@@ -124,10 +125,10 @@ public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador {
         AlertDialog alert = builderDialog.create();
         alert.show();
         Button b = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
-        b.setTextColor(mainActivity.getResources().getColor(R.color.celeste));
+        b.setTextColor(mainActivity.getResources().getColor(R.color.azulAlertDialog));
         b.setTextSize(20);
         Button b1 = alert.getButton(DialogInterface.BUTTON_POSITIVE);
-        b1.setTextColor(mainActivity.getResources().getColor(R.color.celeste));
+        b1.setTextColor(mainActivity.getResources().getColor(R.color.azulAlertDialog));
         b1.setTextSize(20);
     }
 }

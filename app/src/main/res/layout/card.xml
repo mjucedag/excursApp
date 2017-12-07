@@ -32,7 +32,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
-                android:textColor="@color/album_title"
+                android:textColor="@color/azulOscuro"
                 android:textSize="15dp"/>
 
             <TextView
