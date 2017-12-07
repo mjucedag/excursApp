@@ -7,5 +7,7 @@
     <color name="album_title">#2B60AA</color>
     <color name="white">#ffff</color>
     <color name="textoDrawer">#0404B4</color>
+    <color name="celeste">#e0f8f1</color>
+    <color name="azulOscuro">#2b60aa</color>
 
 </resources>

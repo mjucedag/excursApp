@@ -26,6 +26,7 @@
         <activity android:name=".vista.Help.Help" />
         <activity android:name=".vista.Help.HelpCreate" />
         <activity android:name=".vista.Help.HelpSearch"></activity>
+        <activity android:name=".vista.VistaPrincipal" android:label="@string/app_name_view" android:theme="@style/AppThemeWithActionBar"></activity>
     </application>
 
 </manifest>

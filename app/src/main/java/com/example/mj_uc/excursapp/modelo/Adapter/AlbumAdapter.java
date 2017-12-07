@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.mj_uc.excursapp.R;
 import com.example.mj_uc.excursapp.modelo.Album;
+import com.example.mj_uc.excursapp.vista.VistaPrincipal;
 
 import java.util.List;
 
@@ -59,9 +60,9 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
 
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                /*Intent intent = new Intent(mc, SignoutActivity.class);
-                intent.putExtra("ID_PHOTO", album.getId());
-                mc.startActivity(intent);*/
+                Intent intent = new Intent(mc, VistaPrincipal.class);
+                intent.putExtra("ID_ACTIVIDAD", album.getId());
+                mc.startActivity(intent);
             }
         });
     }

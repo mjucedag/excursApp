@@ -2,18 +2,23 @@ package com.example.mj_uc.excursapp.vista.navigationDrawer;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mj_uc.excursapp.MainActivity;
 import com.example.mj_uc.excursapp.R;
-import com.example.mj_uc.excursapp.vista.Help.Help;
+import com.example.mj_uc.excursapp.contrato.ContratoDrawerMenu;
+import com.example.mj_uc.excursapp.dagger.DrawerMenuModule;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
+
+import javax.inject.Inject;
+
+import dagger.ObjectGraph;
 
 @Layout(R.layout.drawer_item)
 public class DrawerMenuItem {
@@ -27,7 +32,9 @@ public class DrawerMenuItem {
 
     private int mMenuPosition;
     private Context mContext;
-    private DrawerCallBack mCallBack;
+
+    @Inject
+    ContratoDrawerMenu.Presentador presentador;
 
     @View(R.id.itemNameTxt)
     private TextView itemNameTxt;
@@ -38,15 +45,21 @@ public class DrawerMenuItem {
     @View(R.id.itemIcon)
     private ImageView itemIcon;
 
-    public DrawerMenuItem(Context context, int menuPosition) {
+    public DrawerMenuItem(Context context, int menuPosition, MainActivity mainActivity) {
         mContext = context;
         mMenuPosition = menuPosition;
+
+        // Inyecta las clases con Dagger. Esto solo lo tenemos aquí por simplicidad.
+        ObjectGraph objectGraph = ObjectGraph.create(new DrawerMenuModule());
+        objectGraph.inject(this);
+
+        presentador.setMainActivity(mainActivity);
     }
 
     @SuppressLint("NewApi")
     @Resolve
     private void onResolved() {
-        switch (mMenuPosition){
+        switch (mMenuPosition) {
             case DRAWER_MENU_NAV_ADD:
                 itemNameTxt.setText("Crear Actividad");
                 itemIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_add_black_24dp));
@@ -79,36 +92,21 @@ public class DrawerMenuItem {
     }
 
     @Click(R.id.mainView)
-    private void onMenuItemClick(){
+    private void onMenuItemClick() {
         switch (mMenuPosition) {
             case DRAWER_MENU_NAV_ADD:
                 Toast.makeText(mContext, "Go to Create Activity", Toast.LENGTH_SHORT).show();
-                if (mCallBack != null) mCallBack.onCreateMenuSelected();
                 break;
             case DRAWER_MENU_NAV_GROUP:
-                Toast.makeText(mContext, "Go to Query by Group", Toast.LENGTH_SHORT).show();
-                if (mCallBack != null) mCallBack.onGroupQueryMenuSelected();
+                presentador.onGroupQueryMenuSelected();
                 break;
             case DRAWER_MENU_NAV_DATE:
-                Toast.makeText(mContext, "Go to Query by Date", Toast.LENGTH_SHORT).show();
-                if (mCallBack != null) mCallBack.onDateQueryMenuSelected();
+                presentador.onDateQueryMenuSelected();
                 break;
             case DRAWER_MENU_NAV_HELP:
-                Intent goToHelp = new Intent(mContext,Help.class);
-                mContext.startActivity(goToHelp);
+                presentador.onHelpMenuSelected();
                 break;
         }
-    }
-
-    public void setDrawerCallBack(DrawerCallBack callBack) {
-        mCallBack = callBack;
-    }
-
-    public interface DrawerCallBack{
-        void onCreateMenuSelected();
-        void onGroupQueryMenuSelected();
-        void onDateQueryMenuSelected();
-        void onHelpMenuSelected();
     }
 }
 

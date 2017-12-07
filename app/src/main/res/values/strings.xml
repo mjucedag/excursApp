@@ -18,6 +18,22 @@
     <string name="NDW_ayuda">Ayuda</string>
 
     <string name="crear"><b>Crear Actividad</b></string>
+    <string name="campos">Campos Obligatorios(*)</string>
+    <string name="insertar">Insertar Imagen</string>
+    <string name="titAct">Titulo de la Actividad *</string>
+
+    <string name="dir">Dirección</string>
+    <string name="fecha">Fecha y Hora</string>
+    <string name="grupos">Grupo/s</string>
+    <string name="Lugar">Lugar de Realización</string>
+    <string name="prof">Profesores</string>
+    <string name="titulo">TITULO</string>
+    <string name="todo">TODO</string>
+    <string name="app_name_view">Actividad</string>
+
+    <string name="dash">Borrar</string>
+    <string name="editar">Editar</string>
+    <string name="pdf">PDF</string>
 
 
 </resources>

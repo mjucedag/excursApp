@@ -37,6 +37,8 @@ public class ObjectJson implements Parcelable {
         this.profesor = profesor;
     }
 
+    public ObjectJson(){};
+
 
     protected ObjectJson(Parcel in) {
         if (in.readByte() == 0x01) {
