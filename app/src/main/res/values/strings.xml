@@ -46,29 +46,27 @@
 
     <string name="comofiltrar">Cómo consultar actividades</string>
     <string name="help_search1">1. En la parte superior izquierda, haz clic en Menú ... .</string>
-    <string name="help_search2">2. Dependiendo de la consulta que quieras realizar, selecciona la opción Por Grupo ...
-        si quieres filtrar tu consulta por grupo/os escolares, o la opción Fecha ... si quieres filtrar tu consulta por
-        fecha/fechas almacenadas.</string>
+    <string name="help_search2">2. Si quieres filtrar tu consulta por grupo/os escolares, selecciona la opción ---------------- o si quieres filtrar
+        tu consulta por fecha/fechas almacenadas, selecciona la opción       </string>
     <string name="help_search3">3. Selecciona uno o varios campos a consultar.</string>
     <string name="help_search4">4. Aparecerá la lista de actividades filtradas según los campos seleccionados anteriormente.</string>
 
-    <string name="comoimprimir">Cómo imprimir una actividad en PDF</string>
+    <string name="comoimprimir">Cómo imprimir en formato PDF</string>
     <string name="help_print1">1. Desde la pantalla principal, haz clic sobre la actividad a imprimir.</string>
-    <string name="help_print2">2. En la parte superior derecha, haz clic en el desplegable ... y selecciona la opción PDF ....</string>
-    <string name="help_print3">3. Obtendrás en formato PDF la actividad seleccionada.</string>
+    <string name="help_print2">2. En la parte superior derecha, haz clic en el desplegable</string>
+    <string name="help_print3">3. Selecciona la opción</string>
+    <string name="help_print4">4. Obtendrás en formato PDF la actividad seleccionada.</string>
 
     <string name="comoeditar">Cómo modificar una actividad</string>
     <string name="help_edit1">1. Desde la pantalla principal, haz clic sobre la actividad a editar.</string>
-    <string name="help_edit2">2. En la parte superior derecha, haz clic en el desplegable ... y selecciona la opción Editar ....</string>
-    <string name="help_edit3">3. Modifica la imagen y/o los campos de la actividad y haz clic en Guardar ..</string>
-    <string name="help_edit4">4. Aparecerá un mensaje temporal avisándote de que tu actividad ha sido modificada correctamente.</string>
-    <string name="help_edit5">5. En la lista de actividades de la página principal de esta App, aparecerá tu actividad modificada
+    <string name="help_edit4">4. Modifica la imagen y/o los campos de la actividad y haz clic en Guardar.</string>
+    <string name="help_edit5">5. Aparecerá un mensaje temporal avisándote de que tu actividad ha sido modificada correctamente.</string>
+    <string name="help_edit6">6. En la lista de actividades de la página principal de esta App, aparecerá tu actividad modificada
         ordenada por fecha de realización (no de modificación de la actividad).</string>
 
     <string name="comoborrar">Cómo borrar una actividad</string>
     <string name="help_delete1">1. Desde la pantalla principal, haz clic sobre la actividad a borrar.</string>
-    <string name="help_delete2">2. En la parte superior derecha, haz clic en el desplegable ... y selecciona la opción Borrar ....</string>
-    <string name="help_delete3">3. Haz clic en Aceptar para confirmar el borrado de la actividad.</string>
-    <string name="help_delete4">4. Aparecerá un mensaje temporal avisándote de que tu actividad ha sido borrada correctamente y de forma permanente.</string>
+    <string name="help_delete4">4. Haz clic en Aceptar para confirmar el borrado de la actividad.</string>
+    <string name="help_delete5">5. Aparecerá un mensaje temporal avisándote de que tu actividad ha sido borrada correctamente y de forma permanente.</string>
 
 </resources>
