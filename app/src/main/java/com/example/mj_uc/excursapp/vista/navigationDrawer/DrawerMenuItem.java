@@ -62,30 +62,36 @@ public class DrawerMenuItem {
         switch (mMenuPosition) {
             case DRAWER_MENU_NAV_ADD:
                 itemNameTxt.setText("Crear Actividad");
+                itemNameTxt.setTextSize(18);
                 itemIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_add_black_24dp));
                 break;
             case DRAWER_MENU_NAV_QUERY:
                 itemNameTxtSub.setText("Consulta de Actividades");
+                itemNameTxt.setTextSize(20);
                 itemNameTxtSub.setTextColor(Color.parseColor("#2E64FE"));
                 itemIcon.setVisibility(android.view.View.GONE);
                 itemNameTxt.setVisibility(android.view.View.GONE);
                 break;
             case DRAWER_MENU_NAV_GROUP:
                 itemNameTxt.setText("Por Grupo");
+                itemNameTxt.setTextSize(18);
                 itemIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_group_black_24dp));
                 break;
             case DRAWER_MENU_NAV_DATE:
                 itemNameTxt.setText("Por Fecha");
+                itemNameTxt.setTextSize(18);
                 itemIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_date_range_black_24dp));
                 break;
             case DRAWER_MENU_NAV_HELP_TITLE:
                 itemNameTxtSub.setText("Ayuda");
+                itemNameTxt.setTextSize(20);
                 itemNameTxtSub.setTextColor(Color.parseColor("#2E64FE"));
                 itemIcon.setVisibility(android.view.View.GONE);
                 itemNameTxt.setVisibility(android.view.View.GONE);
                 break;
             case DRAWER_MENU_NAV_HELP:
                 itemNameTxt.setText("Ayuda");
+                itemNameTxt.setTextSize(18);
                 itemIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_help_black_24dp));
                 break;
         }
