@@ -15,8 +15,8 @@ public class JsonTool {
 
     private static final String JSON_FILE = "jsonExcursapp.json";
 
+    @Deprecated
     public static ObjectJson readFromFile(Context context) {
-
 
         JsonReader jsonReader = null;
         ObjectJson objectJsons = null;

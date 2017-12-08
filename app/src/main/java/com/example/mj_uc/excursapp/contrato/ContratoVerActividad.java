@@ -9,6 +9,6 @@ public interface ContratoVerActividad {
 
     interface Presentador {
         void setVista(Vista vista);
-        void populateFields();
+        void prepareView();
     }
 }

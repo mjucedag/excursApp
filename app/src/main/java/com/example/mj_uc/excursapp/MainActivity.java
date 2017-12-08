@@ -1,7 +1,5 @@
 package com.example.mj_uc.excursapp;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -17,16 +15,13 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.mj_uc.excursapp.contrato.ContratoMainActivity;
 import com.example.mj_uc.excursapp.dagger.MainModule;
-import com.example.mj_uc.excursapp.modelo.Album;
 import com.example.mj_uc.excursapp.modelo.Adapter.AlbumAdapter;
+import com.example.mj_uc.excursapp.modelo.Album;
 import com.example.mj_uc.excursapp.vista.RecycleViewTools.GridSpacingItemDecoration;
 import com.example.mj_uc.excursapp.vista.navigationDrawer.DrawerHeader;
 import com.example.mj_uc.excursapp.vista.navigationDrawer.DrawerMenuItem;
@@ -214,11 +209,6 @@ public class MainActivity extends AppCompatActivity implements ContratoMainActiv
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
 
-
-    public void test() {
-
-
-    }
  /*
     @Override
     public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {

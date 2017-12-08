@@ -4,17 +4,19 @@ package com.example.mj_uc.excursapp.presentador;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.mj_uc.excursapp.MainActivity;
 import com.example.mj_uc.excursapp.R;
+import com.example.mj_uc.excursapp.apirest.WebRequest;
 import com.example.mj_uc.excursapp.contrato.ContratoDrawerMenu;
-import com.example.mj_uc.excursapp.Tools.JsonTool;
 import com.example.mj_uc.excursapp.modelo.Pojo.Actividad;
 import com.example.mj_uc.excursapp.modelo.Pojo.Grupo;
-import com.example.mj_uc.excursapp.modelo.Pojo.ObjectJson;
 import com.example.mj_uc.excursapp.vista.Help.Help;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -30,43 +32,67 @@ public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador {
     @Override
     public void onGroupQueryMenuSelected() {
 
-        List<CharSequence> list = new ArrayList<>();
-        ObjectJson objectJson = JsonTool.readFromFile(mainActivity);
-        List<Grupo> grupos = objectJson.getGrupo();
-        for (Grupo g : grupos) {
-            list.add(g.getNombre());
-        }
-        createAlertDialog(list, "Selecciona uno o más grupos");
+        AsyncTask<String, Void, String> task = new AsyncTask<String, Void, String>() {
+            @Override
+            protected String doInBackground(String... args) {
+                WebRequest webreq = new WebRequest();
+                String jsonStr = webreq.makeWebServiceCall("https://apirest-mjuceda.c9users.io/grupo", WebRequest.GETRequest);
+                return jsonStr;
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                List<CharSequence> list = new ArrayList<>();
+                Gson g = new Gson();
+                List<Grupo> grupos = g.fromJson(s, new TypeToken<List<Grupo>>() {}.getType());
+                for (Grupo grupo : grupos) {
+                    list.add(grupo.getNombre());
+                }
+                createAlertDialog(list, "Selecciona uno o más grupos");
+            }
+        };
+        task.execute();
     }
 
     @Override
     public void onDateQueryMenuSelected() {
-        List<CharSequence> list = new ArrayList<>();
 
-        try {
-
-            List<Date> listDate = new ArrayList<>();
-            ObjectJson objectJson = JsonTool.readFromFile(mainActivity);
-            List<Actividad> actividad = objectJson.getActividad();
-
-            //Necessary parse to Date in order to sort it
-            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-            for (Actividad a : actividad) {
-                listDate.add(formatter.parse(a.getFechasalida()));
+        AsyncTask<String, Void, String> task = new AsyncTask<String, Void, String>() {
+            @Override
+            protected String doInBackground(String... args) {
+                WebRequest webreq = new WebRequest();
+                String jsonStr = webreq.makeWebServiceCall("https://apirest-mjuceda.c9users.io/actividad", WebRequest.GETRequest);
+                return jsonStr;
             }
 
-            Collections.sort(listDate);
+            @Override
+            protected void onPostExecute(String s) {
+                List<CharSequence> list = new ArrayList<>();
+                try {
 
-            //We get back to String
-            for (Date d : listDate) {
-                list.add(formatter.format(d));
+                    List<Date> listDate = new ArrayList<>();
+                    Gson g = new Gson();
+                    List<Actividad> actividad = g.fromJson(s, new TypeToken<List<Actividad>>() {
+                    }.getType());
+                    //Necessary parse to Date in order to sort it
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                    for (Actividad a : actividad) {
+                        listDate.add(formatter.parse(a.getFechasalida()));
+                    }
+
+                    Collections.sort(listDate);
+
+                    //We get back to String
+                    for (Date d : listDate) {
+                        list.add(formatter.format(d));
+                    }
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                createAlertDialog(list, "Selecciona una o más fechas");
             }
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        createAlertDialog(list, "Selecciona una o más fechas");
+        };
+        task.execute();
     }
 
     @Override
