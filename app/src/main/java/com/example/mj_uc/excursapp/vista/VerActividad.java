@@ -49,7 +49,7 @@ public class VerActividad extends AppCompatActivity implements ContratoVerActivi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vista_principal);
+        setContentView(R.layout.activity_ver_actividad);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         init();
         // MANIFIESTO --> android:parentActivityName=""

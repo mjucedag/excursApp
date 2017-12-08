@@ -33,7 +33,7 @@
 
     <string name="dash">Borrar</string>
     <string name="editar">Editar</string>
-    <string name="pdf">PDF</string>
+    <string name="pdf">Imprimir en PDF</string>
 
     <string name="comocrear">Cómo crear una actividad</string>
     <string name="help_create1">1. En la parte superior izquierda, haz clic en</string>
