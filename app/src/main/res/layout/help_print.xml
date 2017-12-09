@@ -71,7 +71,7 @@
         app:layout_constraintHorizontal_bias="0.733"
         app:layout_constraintStart_toStartOf="@+id/tvc2"
         app:layout_constraintTop_toTopOf="@+id/tvc2"
-        app:srcCompat="@drawable/imprimir" />
+        app:srcCompat="@drawable/imprimirpdf" />
 
     <TextView
         android:id="@+id/textView"
