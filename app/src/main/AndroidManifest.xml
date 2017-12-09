@@ -26,6 +26,16 @@
             android:label="Actividades"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity android:name=".ConsultaGrupo"
+            android:label="Consulta por Grupo/s"
+            android:theme="@style/AppThemeWithActionBar"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity android:name=".ConsultaFecha"
+            android:label="Consulta por Fecha/s"
+            android:theme="@style/AppThemeWithActionBar"
+            android:parentActivityName=".MainActivity"/>
+
         <activity android:name=".vista.Help.Help"
             android:label="@string/NDW_ayuda"
             android:theme="@style/AppThemeWithActionBar"
