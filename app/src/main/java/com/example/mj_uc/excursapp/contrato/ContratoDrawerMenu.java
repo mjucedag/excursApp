@@ -30,6 +30,11 @@ public interface ContratoDrawerMenu {
         void onHelpMenuSelected();
 
         /**
+         * On create menu selected.
+         */
+        void onCreateMenuSelected();
+
+        /**
          * Sets main activity.
          *
          * @param mainActivity the main activity
