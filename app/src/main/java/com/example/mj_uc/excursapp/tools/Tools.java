@@ -1,4 +1,4 @@
-package com.example.mj_uc.excursapp.Tools;
+package com.example.mj_uc.excursapp.tools;
 
 
 /**
@@ -13,6 +13,9 @@ public class Tools {
      * @return the string
      */
     public static String removeExtension(String fileName) {
-        return fileName.substring(0, fileName.lastIndexOf('.'));
+        if(fileName.contains(".")){
+            return fileName.substring(0, fileName.lastIndexOf('.'));
+        }
+        return fileName;
     }
 }
