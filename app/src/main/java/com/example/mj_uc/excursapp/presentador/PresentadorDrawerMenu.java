@@ -10,7 +10,9 @@ import android.widget.ListView;
 
 import com.example.mj_uc.excursapp.MainActivity;
 import com.example.mj_uc.excursapp.R;
+import com.example.mj_uc.excursapp.apirest.APIConnection;
 import com.example.mj_uc.excursapp.apirest.WebRequest;
+import com.example.mj_uc.excursapp.apirest.WebResponse;
 import com.example.mj_uc.excursapp.contrato.ContratoDrawerMenu;
 import com.example.mj_uc.excursapp.modelo.Pojo.Actividad;
 import com.example.mj_uc.excursapp.modelo.Pojo.Grupo;
@@ -25,74 +27,28 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador {
+public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador, WebResponse {
+
+    public static final int ITEM_GROUP_MENU = 1;
+    public static final int ITEM_DATE_MENU = 2;
 
     private MainActivity mainActivity;
+    private Integer typeResponseService;
 
     @Override
     public void onGroupQueryMenuSelected() {
 
-        AsyncTask<String, Void, String> task = new AsyncTask<String, Void, String>() {
-            @Override
-            protected String doInBackground(String... args) {
-                WebRequest webreq = new WebRequest();
-                String jsonStr = webreq.makeWebServiceCall("https://apirest-mjuceda.c9users.io/grupo", WebRequest.GETRequest);
-                return jsonStr;
-            }
+        typeResponseService = PresentadorDrawerMenu.ITEM_GROUP_MENU;
 
-            @Override
-            protected void onPostExecute(String s) {
-                List<CharSequence> list = new ArrayList<>();
-                Gson g = new Gson();
-                List<Grupo> grupos = g.fromJson(s, new TypeToken<List<Grupo>>() {}.getType());
-                for (Grupo grupo : grupos) {
-                    list.add(grupo.getNombre());
-                }
-                createAlertDialog(list, "Selecciona uno o más grupos");
-            }
-        };
-        task.execute();
+        APIConnection.getConnection("https://apirest-mjuceda.c9users.io/grupo", WebRequest.GETRequest, this);
     }
 
     @Override
     public void onDateQueryMenuSelected() {
 
-        AsyncTask<String, Void, String> task = new AsyncTask<String, Void, String>() {
-            @Override
-            protected String doInBackground(String... args) {
-                WebRequest webreq = new WebRequest();
-                String jsonStr = webreq.makeWebServiceCall("https://apirest-mjuceda.c9users.io/actividad", WebRequest.GETRequest);
-                return jsonStr;
-            }
+        typeResponseService = PresentadorDrawerMenu.ITEM_DATE_MENU;
 
-            @Override
-            protected void onPostExecute(String s) {
-                List<CharSequence> list = new ArrayList<>();
-                try {
-
-                    List<Date> listDate = new ArrayList<>();
-                    Gson g = new Gson();
-                    List<Actividad> actividad = g.fromJson(s, new TypeToken<List<Actividad>>() {
-                    }.getType());
-                    //Necessary parse to Date in order to sort it
-                    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-                    for (Actividad a : actividad) {
-                        listDate.add(formatter.parse(a.getFechasalida()));
-                    }
-
-                    Collections.sort(listDate);
-
-                    //We get back to String
-                    for (Date d : listDate) {
-                        list.add(formatter.format(d));
-                    }
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                createAlertDialog(list, "Selecciona una o más fechas");
-            }
-        };
-        task.execute();
+        APIConnection.getConnection("https://apirest-mjuceda.c9users.io/actividad", WebRequest.GETRequest, this);
     }
 
     @Override
@@ -156,5 +112,54 @@ public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador {
         Button b1 = alert.getButton(DialogInterface.BUTTON_POSITIVE);
         b1.setTextColor(mainActivity.getResources().getColor(R.color.azulAlertDialog));
         b1.setTextSize(20);
+    }
+
+    @Override
+    public void onResponseService(String response) {
+
+        switch (typeResponseService){
+            case ITEM_GROUP_MENU:
+                onGroupMenuResponseService(response);
+                break;
+            case ITEM_DATE_MENU:
+                onDateMenuResponseService(response);
+                break;
+        }
+    }
+
+    private void onGroupMenuResponseService(String response) {
+        List<CharSequence> list = new ArrayList<>();
+        Gson g = new Gson();
+        List<Grupo> grupos = g.fromJson(response, new TypeToken<List<Grupo>>() {}.getType());
+        for (Grupo grupo : grupos) {
+            list.add(grupo.getNombre());
+        }
+        createAlertDialog(list, "Selecciona uno o más grupos");
+    }
+
+    private void onDateMenuResponseService(String response) {
+        List<CharSequence> list = new ArrayList<>();
+        try {
+
+            List<Date> listDate = new ArrayList<>();
+            Gson g = new Gson();
+            List<Actividad> actividad = g.fromJson(response, new TypeToken<List<Actividad>>() {
+            }.getType());
+            //Necessary parse to Date in order to sort it
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+            for (Actividad a : actividad) {
+                listDate.add(formatter.parse(a.getFechasalida()));
+            }
+
+            Collections.sort(listDate);
+
+            //We get back to String
+            for (Date d : listDate) {
+                list.add(formatter.format(d));
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        createAlertDialog(list, "Selecciona una o más fechas");
     }
 }

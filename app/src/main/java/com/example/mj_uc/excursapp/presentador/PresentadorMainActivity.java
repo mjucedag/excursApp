@@ -1,9 +1,9 @@
 package com.example.mj_uc.excursapp.presentador;
 
-import android.os.AsyncTask;
-
 import com.example.mj_uc.excursapp.MainActivity;
+import com.example.mj_uc.excursapp.apirest.APIConnection;
 import com.example.mj_uc.excursapp.apirest.WebRequest;
+import com.example.mj_uc.excursapp.apirest.WebResponse;
 import com.example.mj_uc.excursapp.contrato.ContratoMainActivity;
 import com.example.mj_uc.excursapp.modelo.Album;
 import com.example.mj_uc.excursapp.modelo.Pojo.Actividad;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class PresentadorMainActivity implements ContratoMainActivity.Presentador {
+public class PresentadorMainActivity implements ContratoMainActivity.Presentador, WebResponse{
 
     private ContratoMainActivity.Vista vista;
 
@@ -27,22 +27,11 @@ public class PresentadorMainActivity implements ContratoMainActivity.Presentador
     @Override
     public void prepareAlbums() {
 
-        AsyncTask<String, Void, String> task = new AsyncTask<String, Void, String>() {
-            @Override
-            protected String doInBackground(String... args) {
-                WebRequest webreq = new WebRequest();
-                String jsonStr = webreq.makeWebServiceCall("https://apirest-mjuceda.c9users.io/db", WebRequest.GETRequest);
-                return jsonStr;
-            }
-            @Override
-            protected void onPostExecute(String s) {
-                populateFields(s);
-            }
-        };
-        task.execute();
+        APIConnection.getConnection("https://apirest-mjuceda.c9users.io/db",  WebRequest.GETRequest, this);
     }
 
-    private void populateFields(String s) {
+    @Override
+    public void onResponseService(String s) {
         MainActivity mainActivity = (MainActivity) vista;
         ObjectJson objectJsons = new Gson().fromJson(s, ObjectJson.class);
         List<Album> albumOrdenadoFecha = new ArrayList<>();
