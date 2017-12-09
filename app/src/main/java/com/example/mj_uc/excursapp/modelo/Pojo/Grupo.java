@@ -3,31 +3,63 @@ package com.example.mj_uc.excursapp.modelo.Pojo;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * The type Grupo.
+ */
 public class Grupo implements Parcelable {
 
     private int id;
     private String nombre;
 
+    /**
+     * Instantiates a new Grupo.
+     */
     public Grupo() {
     }
 
+    /**
+     * Instantiates a new Grupo.
+     *
+     * @param id     the id
+     * @param nombre the nombre
+     */
     public Grupo(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Gets nombre.
+     *
+     * @return the nombre
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Sets nombre.
+     *
+     * @param nombre the nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -59,6 +91,11 @@ public class Grupo implements Parcelable {
     }
 
 
+    /**
+     * Instantiates a new Grupo.
+     *
+     * @param in the in
+     */
     protected Grupo(Parcel in) {
         id = in.readInt();
         nombre = in.readString();
@@ -75,6 +112,9 @@ public class Grupo implements Parcelable {
         dest.writeString(nombre);
     }
 
+    /**
+     * The constant CREATOR.
+     */
     @SuppressWarnings("unused")
     public static final Parcelable.Creator<Grupo> CREATOR = new Parcelable.Creator<Grupo>() {
         @Override

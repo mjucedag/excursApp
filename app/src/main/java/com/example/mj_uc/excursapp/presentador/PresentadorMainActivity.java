@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * The type Presentador main activity.
+ */
 public class PresentadorMainActivity implements ContratoMainActivity.Presentador, WebResponse{
 
     private ContratoMainActivity.Vista vista;

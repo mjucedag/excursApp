@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import com.example.mj_uc.excursapp.R;
 
+/**
+ * The type Help.
+ */
 public class Help extends AppCompatActivity {
 
     private ImageButton crearImg;

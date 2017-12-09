@@ -34,6 +34,9 @@ import javax.inject.Inject;
 
 import dagger.ObjectGraph;
 
+/**
+ * The type Main activity.
+ */
 public class MainActivity extends AppCompatActivity implements ContratoMainActivity.Vista{
 
     private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
@@ -48,13 +51,26 @@ public class MainActivity extends AppCompatActivity implements ContratoMainActiv
     private Toolbar mToolbar;
     private NestedScrollView nestedScrollView;
 
+    /**
+     * The Presentador.
+     */
     @Inject
     ContratoMainActivity.Presentador presentador;
 
+    /**
+     * Gets adapter.
+     *
+     * @return the adapter
+     */
     public AlbumAdapter getAdapter() {
         return adapter;
     }
 
+    /**
+     * Gets album list.
+     *
+     * @return the album list
+     */
     public List<Album> getAlbumList() {
         return albumList;
     }

@@ -16,12 +16,18 @@ import javax.inject.Inject;
 
 import dagger.ObjectGraph;
 
+/**
+ * The type Ver actividad.
+ */
 public class VerActividad extends AppCompatActivity implements ContratoVerActividad.Vista {
 
     private TextView titulo, descripcion, campoProfesor, campoGrupos, campoLugar, campoDireccion, campoFecha, horaSalida, horaLlegada;
     private ImageView fotoAct;
     private Integer idActividad;
 
+    /**
+     * The Presentador.
+     */
     @Inject
     ContratoVerActividad.Presentador presentador;
 
@@ -83,38 +89,83 @@ public class VerActividad extends AppCompatActivity implements ContratoVerActivi
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Gets titulo.
+     *
+     * @return the titulo
+     */
     public TextView getTitulo() {
         return titulo;
     }
 
+    /**
+     * Gets descripcion.
+     *
+     * @return the descripcion
+     */
     public TextView getDescripcion() {
         return descripcion;
     }
 
+    /**
+     * Gets campo profesor.
+     *
+     * @return the campo profesor
+     */
     public TextView getCampoProfesor() {
         return campoProfesor;
     }
 
+    /**
+     * Gets campo grupos.
+     *
+     * @return the campo grupos
+     */
     public TextView getCampoGrupos() {
         return campoGrupos;
     }
 
+    /**
+     * Gets campo lugar.
+     *
+     * @return the campo lugar
+     */
     public TextView getCampoLugar() {
         return campoLugar;
     }
 
+    /**
+     * Gets campo direccion.
+     *
+     * @return the campo direccion
+     */
     public TextView getCampoDireccion() {
         return campoDireccion;
     }
 
+    /**
+     * Gets campo fecha.
+     *
+     * @return the campo fecha
+     */
     public TextView getCampoFecha() {
         return campoFecha;
     }
 
+    /**
+     * Gets hora salida.
+     *
+     * @return the hora salida
+     */
     public TextView getHoraSalida() {
         return horaSalida;
     }
 
+    /**
+     * Gets foto act.
+     *
+     * @return the foto act
+     */
     public ImageView getFotoAct() {
         return fotoAct;
     }

@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.mj_uc.excursapp.R;
 
+/**
+ * The type Help edit.
+ */
 public class HelpEdit extends AppCompatActivity {
 
     @Override

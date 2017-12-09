@@ -12,6 +12,9 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
+/**
+ * The Web Request.
+ */
 public class WebRequest {
 
     public final static int GETRequest = 1;

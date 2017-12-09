@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import com.example.mj_uc.excursapp.R;
 
+/**
+ * The type Help create.
+ */
 public class HelpCreate extends AppCompatActivity {
 
     @Override

@@ -9,6 +9,9 @@ import com.mindorks.placeholderview.annotations.NonReusable;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 
+/**
+ * The type Drawer header.
+ */
 @NonReusable
 @Layout(R.layout.drawer_header)
 public class DrawerHeader {

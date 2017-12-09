@@ -6,6 +6,9 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Actividad.
+ */
 public class Actividad implements Parcelable {
 
     private int id;
@@ -20,9 +23,27 @@ public class Actividad implements Parcelable {
     private List<Integer> idprofesor;
     private List<Integer> idgrupo;
 
+    /**
+     * Instantiates a new Actividad.
+     */
     public Actividad() {
     }
 
+    /**
+     * Instantiates a new Actividad.
+     *
+     * @param id          the id
+     * @param img         the img
+     * @param titulo      the titulo
+     * @param lugar       the lugar
+     * @param direccion   the direccion
+     * @param fechasalida the fechasalida
+     * @param horasalida  the horasalida
+     * @param horallegada the horallegada
+     * @param descripcion the descripcion
+     * @param idprofesor  the idprofesor
+     * @param idgrupo     the idgrupo
+     */
     public Actividad(int id, String img, String titulo, String lugar, String direccion, String fechasalida, String horasalida, String horallegada, String descripcion, List<Integer> idprofesor, List<Integer> idgrupo) {
         this.id = id;
         this.img = img;
@@ -37,90 +58,200 @@ public class Actividad implements Parcelable {
         this.idgrupo = idgrupo;
     }
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Gets img.
+     *
+     * @return the img
+     */
     public String getImg() {
         return img;
     }
 
+    /**
+     * Gets titulo.
+     *
+     * @return the titulo
+     */
     public String getTitulo() {
         return titulo;
     }
 
+    /**
+     * Gets lugar.
+     *
+     * @return the lugar
+     */
     public String getLugar() {
         return lugar;
     }
 
+    /**
+     * Gets direccion.
+     *
+     * @return the direccion
+     */
     public String getDireccion() {
         return direccion;
     }
 
+    /**
+     * Gets fechasalida.
+     *
+     * @return the fechasalida
+     */
     public String getFechasalida() {
         return fechasalida;
     }
 
+    /**
+     * Gets horasalida.
+     *
+     * @return the horasalida
+     */
     public String getHorasalida() {
         return horasalida;
     }
 
+    /**
+     * Gets horallegada.
+     *
+     * @return the horallegada
+     */
     public String getHorallegada() {
         return horallegada;
     }
 
+    /**
+     * Gets descripcion.
+     *
+     * @return the descripcion
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     * Gets profesores.
+     *
+     * @return the profesores
+     */
     public List<Integer> getProfesores() {
         return idprofesor;
     }
 
+    /**
+     * Gets grupos.
+     *
+     * @return the grupos
+     */
     public List<Integer> getGrupos() {
         return idgrupo;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Sets img.
+     *
+     * @param img the img
+     */
     public void setImg(String img) {
         this.img = img;
     }
 
+    /**
+     * Sets titulo.
+     *
+     * @param titulo the titulo
+     */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
+    /**
+     * Sets lugar.
+     *
+     * @param lugar the lugar
+     */
     public void setLugar(String lugar) {
         this.lugar = lugar;
     }
 
+    /**
+     * Sets direccion.
+     *
+     * @param direccion the direccion
+     */
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 
+    /**
+     * Sets fechasalida.
+     *
+     * @param fechasalida the fechasalida
+     */
     public void setFechasalida(String fechasalida) {
         this.fechasalida = fechasalida;
     }
 
+    /**
+     * Sets horasalida.
+     *
+     * @param horasalida the horasalida
+     */
     public void setHorasalida(String horasalida) {
         this.horasalida = horasalida;
     }
 
+    /**
+     * Sets horallegada.
+     *
+     * @param horallegada the horallegada
+     */
     public void setHorallegada(String horallegada) {
         this.horallegada = horallegada;
     }
 
+    /**
+     * Sets descripcion.
+     *
+     * @param descripcion the descripcion
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    /**
+     * Sets profesores.
+     *
+     * @param idprofesor the idprofesor
+     */
     public void setProfesores(List<Integer> idprofesor) {
         this.idprofesor = idprofesor;
     }
 
+    /**
+     * Sets grupos.
+     *
+     * @param grupos the grupos
+     */
     public void setGrupos(List<Integer> grupos) {
         this.idgrupo = idgrupo;
     }
@@ -178,6 +309,11 @@ public class Actividad implements Parcelable {
         return result;
     }
 
+    /**
+     * Instantiates a new Actividad.
+     *
+     * @param in the in
+     */
     protected Actividad(Parcel in) {
         id = in.readInt();
         img = in.readString();
@@ -232,6 +368,9 @@ public class Actividad implements Parcelable {
         }
     }
 
+    /**
+     * The constant CREATOR.
+     */
     @SuppressWarnings("unused")
     public static final Parcelable.Creator<Actividad> CREATOR = new Parcelable.Creator<Actividad>() {
         @Override

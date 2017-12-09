@@ -29,9 +29,18 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Presentador ver actividad.
+ */
 public class PresentadorVerActividad implements ContratoVerActividad.Presentador, WebResponse{
 
+    /**
+     * The constant PREPARE_VIEW.
+     */
     public static final int PREPARE_VIEW = 1;
+    /**
+     * The constant DELETE_ACTIVIDAD.
+     */
     public static final int DELETE_ACTIVIDAD = 2;
 
     private ContratoVerActividad.Vista vista;

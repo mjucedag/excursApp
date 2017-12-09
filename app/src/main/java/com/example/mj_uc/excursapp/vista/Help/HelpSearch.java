@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import com.example.mj_uc.excursapp.R;
 
+/**
+ * The type Help search.
+ */
 public class HelpSearch extends AppCompatActivity {
 
     @Override

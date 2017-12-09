@@ -20,19 +20,43 @@ import javax.inject.Inject;
 
 import dagger.ObjectGraph;
 
+/**
+ * The type Drawer menu item.
+ */
 @Layout(R.layout.drawer_item)
 public class DrawerMenuItem {
 
+    /**
+     * The constant DRAWER_MENU_NAV_ADD.
+     */
     public static final int DRAWER_MENU_NAV_ADD = 1;//DRAWER_MENU_NAV_ADD
+    /**
+     * The constant DRAWER_MENU_NAV_GROUP.
+     */
     public static final int DRAWER_MENU_NAV_GROUP = 2;//DRAWER_MENU_NAV_GROUP
+    /**
+     * The constant DRAWER_MENU_NAV_DATE.
+     */
     public static final int DRAWER_MENU_NAV_DATE = 3;//DRAWER_MENU_NAV_DATE
+    /**
+     * The constant DRAWER_MENU_NAV_HELP.
+     */
     public static final int DRAWER_MENU_NAV_HELP = 4;//DRAWER_MENU_NAV_HELP
+    /**
+     * The constant DRAWER_MENU_NAV_QUERY.
+     */
     public static final int DRAWER_MENU_NAV_QUERY = 5;
+    /**
+     * The constant DRAWER_MENU_NAV_HELP_TITLE.
+     */
     public static final int DRAWER_MENU_NAV_HELP_TITLE = 6;
 
     private int mMenuPosition;
     private Context mContext;
 
+    /**
+     * The Presentador.
+     */
     @Inject
     ContratoDrawerMenu.Presentador presentador;
 
@@ -45,6 +69,13 @@ public class DrawerMenuItem {
     @View(R.id.itemIcon)
     private ImageView itemIcon;
 
+    /**
+     * Instantiates a new Drawer menu item.
+     *
+     * @param context      the context
+     * @param menuPosition the menu position
+     * @param mainActivity the main activity
+     */
     public DrawerMenuItem(Context context, int menuPosition, MainActivity mainActivity) {
         mContext = context;
         mMenuPosition = menuPosition;

@@ -27,9 +27,18 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * The type Presentador drawer menu.
+ */
 public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador, WebResponse {
 
+    /**
+     * The constant ITEM_GROUP_MENU.
+     */
     public static final int ITEM_GROUP_MENU = 1;
+    /**
+     * The constant ITEM_DATE_MENU.
+     */
     public static final int ITEM_DATE_MENU = 2;
 
     private MainActivity mainActivity;

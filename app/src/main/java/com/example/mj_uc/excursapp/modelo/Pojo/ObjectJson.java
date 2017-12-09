@@ -7,39 +7,80 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Object json.
+ */
 public class ObjectJson implements Parcelable {
 
     private List<Actividad> actividad;
     private List<Grupo> grupo;
     private List<Profesor> profesor;
 
+    /**
+     * Gets actividad.
+     *
+     * @return the actividad
+     */
     public List<Actividad> getActividad() {
         return actividad;
     }
 
+    /**
+     * Sets actividad.
+     *
+     * @param actividad the actividad
+     */
     public void setActividad(List<Actividad> actividad) {
         this.actividad = actividad;
     }
 
+    /**
+     * Gets grupo.
+     *
+     * @return the grupo
+     */
     public List<Grupo> getGrupo() {
         return grupo;
     }
 
+    /**
+     * Sets grupo.
+     *
+     * @param grupo the grupo
+     */
     public void setGrupo(List<Grupo> grupo) {
         this.grupo = grupo;
     }
 
+    /**
+     * Gets profesor.
+     *
+     * @return the profesor
+     */
     public List<Profesor> getProfesor() {
         return profesor;
     }
 
+    /**
+     * Sets profesor.
+     *
+     * @param profesor the profesor
+     */
     public void setProfesor(List<Profesor> profesor) {
         this.profesor = profesor;
     }
 
+    /**
+     * Instantiates a new Object json.
+     */
     public ObjectJson(){};
 
 
+    /**
+     * Instantiates a new Object json.
+     *
+     * @param in the in
+     */
     protected ObjectJson(Parcel in) {
         if (in.readByte() == 0x01) {
             actividad = new ArrayList<Actividad>();
@@ -88,6 +129,9 @@ public class ObjectJson implements Parcelable {
         }
     }
 
+    /**
+     * The constant CREATOR.
+     */
     @SuppressWarnings("unused")
     public static final Parcelable.Creator<ObjectJson> CREATOR = new Parcelable.Creator<ObjectJson>() {
         @Override

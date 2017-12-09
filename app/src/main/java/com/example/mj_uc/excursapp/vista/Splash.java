@@ -8,6 +8,9 @@ import android.os.Bundle;
 import com.example.mj_uc.excursapp.MainActivity;
 import com.example.mj_uc.excursapp.R;
 
+/**
+ * The type Splash.
+ */
 public class Splash extends AppCompatActivity {
 
     @Override
