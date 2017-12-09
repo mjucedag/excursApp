@@ -98,26 +98,6 @@ public class MainActivity extends AppCompatActivity implements ContratoMainActiv
 
         showTextInToolBar();
         setupDrawer();
-        /****
-
-         /* pide permiso para escribir en la galeria de fotos (al ejecutar la app y tengan MARSHMALLOW)
-         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-         if (ContextCompat.checkSelfPermission(this,
-         Manifest.permission.WRITE_EXTERNAL_STORAGE)
-         != PackageManager.PERMISSION_GRANTED) {
-
-         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-         Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-
-         } else {
-
-         ActivityCompat.requestPermissions(this,
-         new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-         MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
-
-         }
-         }*/
-
 
         initializeRecyclerView();
 
