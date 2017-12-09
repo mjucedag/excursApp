@@ -253,7 +253,7 @@ public class Actividad implements Parcelable {
      * @param grupos the grupos
      */
     public void setGrupos(List<Integer> grupos) {
-        this.idgrupo = idgrupo;
+        this.idgrupo = grupos;
     }
 
     @Override

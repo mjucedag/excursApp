@@ -132,7 +132,7 @@ public class DrawerMenuItem {
     private void onMenuItemClick() {
         switch (mMenuPosition) {
             case DRAWER_MENU_NAV_ADD:
-                Toast.makeText(mContext, "Go to Create Activity", Toast.LENGTH_SHORT).show();
+                presentador.onCreateMenuSelected();
                 break;
             case DRAWER_MENU_NAV_GROUP:
                 presentador.onGroupQueryMenuSelected();

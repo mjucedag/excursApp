@@ -14,7 +14,7 @@ import android.view.View;
 
 import com.example.mj_uc.excursapp.MainActivity;
 import com.example.mj_uc.excursapp.R;
-import com.example.mj_uc.excursapp.Tools.Tools;
+import com.example.mj_uc.excursapp.tools.Tools;
 import com.example.mj_uc.excursapp.apirest.APIConnection;
 import com.example.mj_uc.excursapp.apirest.WebRequest;
 import com.example.mj_uc.excursapp.apirest.WebResponse;
@@ -110,7 +110,7 @@ public class PresentadorVerActividad implements ContratoVerActividad.Presentador
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(verActividad, MainActivity.class);// <- Poner el index para que cuando borre se vaya al index
+                Intent i = new Intent(verActividad, MainActivity.class);
                 verActividad.startActivity(i);
             }
         }, 2000);

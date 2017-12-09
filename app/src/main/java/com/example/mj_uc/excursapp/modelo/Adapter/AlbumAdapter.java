@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.mj_uc.excursapp.R;
-import com.example.mj_uc.excursapp.Tools.Tools;
+import com.example.mj_uc.excursapp.tools.Tools;
 import com.example.mj_uc.excursapp.modelo.Album;
 import com.example.mj_uc.excursapp.vista.VerActividad;
 

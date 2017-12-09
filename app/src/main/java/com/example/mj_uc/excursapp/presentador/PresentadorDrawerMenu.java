@@ -16,6 +16,7 @@ import com.example.mj_uc.excursapp.apirest.WebResponse;
 import com.example.mj_uc.excursapp.contrato.ContratoDrawerMenu;
 import com.example.mj_uc.excursapp.modelo.Pojo.Actividad;
 import com.example.mj_uc.excursapp.modelo.Pojo.Grupo;
+import com.example.mj_uc.excursapp.vista.CreateActivity;
 import com.example.mj_uc.excursapp.vista.Help.Help;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -64,6 +65,12 @@ public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador, We
     public void onHelpMenuSelected() {
         Intent goToHelp = new Intent(mainActivity, Help.class);
         mainActivity.startActivity(goToHelp);
+    }
+
+    @Override
+    public void onCreateMenuSelected() {
+        Intent goToCreate = new Intent(mainActivity, CreateActivity.class);
+        mainActivity.startActivity(goToCreate);
     }
 
     @Override
