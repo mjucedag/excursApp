@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.example.mj_uc.excursapp.R;
@@ -34,7 +33,6 @@ public class ConsultaGrupo extends AppCompatActivity implements ContratoConsulta
     private AlbumAdapter adapter;
     private List<Album> albumList;
     private FloatingActionButton fab;
-    private Toolbar mToolbar;
     private NestedScrollView nestedScrollView;
 
     /**
@@ -73,7 +71,6 @@ public class ConsultaGrupo extends AppCompatActivity implements ContratoConsulta
         presentador.setVista(this);
 
         //*****
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
         nestedScrollView = (NestedScrollView) findViewById(R.id.scroll_view);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         albumList = new ArrayList<>();

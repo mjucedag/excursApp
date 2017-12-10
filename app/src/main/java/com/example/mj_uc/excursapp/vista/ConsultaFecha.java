@@ -1,6 +1,5 @@
 package com.example.mj_uc.excursapp.vista;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
@@ -8,12 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.View;
 
 import com.example.mj_uc.excursapp.R;
-import com.example.mj_uc.excursapp.contrato.ContratoMainActivity;
+import com.example.mj_uc.excursapp.contrato.ContratoConsultaFecha;
+import com.example.mj_uc.excursapp.dagger.ConsultaFechaModule;
 import com.example.mj_uc.excursapp.modelo.Adapter.AlbumAdapter;
 import com.example.mj_uc.excursapp.modelo.Album;
 import com.example.mj_uc.excursapp.tools.Tools;
@@ -24,21 +22,24 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class ConsultaFecha extends AppCompatActivity {
+import dagger.ObjectGraph;
 
-    private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
+/**
+ * The type Consulta fecha.
+ */
+public class ConsultaFecha extends AppCompatActivity implements ContratoConsultaFecha.Vista{
+
     private RecyclerView recyclerView;
     private AlbumAdapter adapter;
     private List<Album> albumList;
     private FloatingActionButton fab;
-    private Toolbar mToolbar;
     private NestedScrollView nestedScrollView;
 
     /**
      * The Presentador.
      */
     @Inject
-    ContratoMainActivity.Presentador presentador;
+    ContratoConsultaFecha.Presentador presentador;
 
     /**
      * Gets adapter.
@@ -63,8 +64,12 @@ public class ConsultaFecha extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.consulta_fecha);
 
-        //*****
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        // Inyecta las clases con Dagger. Esto solo lo tenemos aquí por simplicidad.
+        ObjectGraph objectGraph = ObjectGraph.create(new ConsultaFechaModule());
+        objectGraph.inject(this);
+
+        presentador.setVista(this);
+
         nestedScrollView = (NestedScrollView) findViewById(R.id.scroll_view);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         albumList = new ArrayList<>();
@@ -72,29 +77,17 @@ public class ConsultaFecha extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //pone la flecha
 
-
-
         initializeRecyclerView();
-
-        Album foto = new Album(1,"foto 1", "MARIA JOSE UCEDA", ".....", "24-08-2018");
-        albumList.add(foto);
-        foto = new Album(1,"foto 1", "MARIA JOSE UCEDA", ".....", "24-08-2018");
-        albumList.add(foto);
-        foto = new Album(1,"foto 1", "MARIA JOSE UCEDA", ".....", "24-08-2018");
-        albumList.add(foto);
-        foto = new Album(1,"foto 1", "MARIA JOSE UCEDA", ".....", "24-08-2018");
-        albumList.add(foto);
-        foto = new Album(1,"foto 1", "MARIA JOSE UCEDA", ".....", "24-08-2018");
-        albumList.add(foto);
-        foto = new Album(1,"foto 1", "MARIA JOSE UCEDA", ".....", "24-08-2018");
-        albumList.add(foto);
-
-        getAdapter().notifyDataSetChanged();
 
         //botón flotante
         initializeFabButton();
+
+        presentador.doQueryConsult();
     }
 
+    /**
+     * Initialize recycler view.
+     */
     public void initializeRecyclerView() {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(layoutManager);
@@ -103,6 +96,9 @@ public class ConsultaFecha extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
+    /**
+     * Initialize fab button.
+     */
     public void initializeFabButton() {
         fab = (FloatingActionButton) findViewById(R.id.fab);
 

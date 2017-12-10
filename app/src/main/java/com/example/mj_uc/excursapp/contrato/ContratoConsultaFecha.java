@@ -2,9 +2,9 @@ package com.example.mj_uc.excursapp.contrato;
 
 
 /**
- * The interface Contrato Consulta Grupo.
+ * The interface Contrato Consulta Fecha.
  */
-public interface ContratoConsultaGrupo {
+public interface ContratoConsultaFecha {
 
     /**
      * The interface Vista.

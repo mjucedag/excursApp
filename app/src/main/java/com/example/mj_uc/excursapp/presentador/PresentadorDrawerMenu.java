@@ -111,8 +111,7 @@ public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador, We
                     stringBuilder.setLength(0);
                     dialog.cancel();
                 } else {
-                    //Ir a la otra ventana, pasando los valores concatenados por "," del stringbuilder
-                    //TODO: cambiar el nombre por ID en el strinbuilder
+                    //Ir a la otra ventana, pasando los valores concatenados por "#" del stringbuilder
                     Intent goToQuery = new Intent(mainActivity, intentClass);
                     goToQuery.putExtra("IDS_QUERY", stringBuilder.toString());
                     mainActivity.startActivity(goToQuery);
