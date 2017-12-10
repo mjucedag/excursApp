@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -164,7 +165,7 @@ public class CreateActivity extends AppCompatActivity implements ContratoCreateA
     }
 
     private void setOnClickInInsertarImagen() {
-        /*Intent i = new Intent(CreateActivity.this, VistaImagenes.class);
+        Intent i = new Intent(CreateActivity.this, VistaImagenes.class);
         i.putExtra("tituloAct", tituloAct.getText().toString());
         i.putExtra("lugar", lugarActividad.getText().toString());
         i.putExtra("direccion", direccion.getText().toString());
@@ -174,7 +175,7 @@ public class CreateActivity extends AppCompatActivity implements ContratoCreateA
         i.putExtra("horaSalida", HoraSalida.getText().toString());
         i.putExtra("horaLlegada", HoraLlegada.getText().toString());
         i.putExtra("descripcion", descripcion.getText().toString());
-        startActivity(i);*/
+        startActivity(i);
     }
 
     private void setOnClickInHoraLlegada() {
