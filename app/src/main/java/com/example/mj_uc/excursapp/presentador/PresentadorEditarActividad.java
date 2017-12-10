@@ -73,7 +73,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         Toast.makeText(editarActividad, "...", Toast.LENGTH_SHORT).show();
 
         typeResponseService = PresentadorEditarActividad.CREATE_ACTIVITY;
-        APIConnection.getConnection("https://apirest-mjuceda.c9users.io/actividad", WebRequest.POSTRequest, this, jsonString);
+        APIConnection.getConnection("https://apirest-mjuceda.c9users.io/actividad", WebRequest.PUTRequest, this, jsonString);
     }
 
     @Override
