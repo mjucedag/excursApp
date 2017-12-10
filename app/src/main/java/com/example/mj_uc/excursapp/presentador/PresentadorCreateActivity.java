@@ -14,6 +14,7 @@ import com.example.mj_uc.excursapp.modelo.Pojo.Grupo;
 import com.example.mj_uc.excursapp.modelo.Pojo.ObjectJson;
 import com.example.mj_uc.excursapp.modelo.Pojo.Profesor;
 import com.example.mj_uc.excursapp.vista.CreateActivity;
+import com.example.mj_uc.excursapp.vista.VistaImagenes;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -71,6 +72,22 @@ public class PresentadorCreateActivity implements ContratoCreateActivity.Present
 
         typeResponseService = PresentadorCreateActivity.CREATE_ACTIVITY;
         APIConnection.getConnection("https://apirest-mjuceda.c9users.io/actividad", WebRequest.POSTRequest, this, jsonString);
+    }
+
+    @Override
+    public void goToVistaImagenes() {
+
+        Intent i = new Intent(createActivity, VistaImagenes.class);
+        i.putExtra("tituloAct", createActivity.getTituloAct().getText().toString());
+        i.putExtra("lugar", createActivity.getLugarActividad().getText().toString());
+        i.putExtra("direccion", createActivity.getDireccion().getText().toString());
+        i.putExtra("profesores", createActivity.getProfesores().getText().toString());
+        i.putExtra("grupos", createActivity.getGrupos().getText().toString());
+        i.putExtra("fecha", createActivity.getFechaSalida().getText().toString());
+        i.putExtra("horaSalida", createActivity.getHoraSalida().getText().toString());
+        i.putExtra("horaLlegada", createActivity.getHoraLlegada().getText().toString());
+        i.putExtra("descripcion", createActivity.getDescripcion().getText().toString());
+        createActivity.startActivity(i);
     }
 
     @Override

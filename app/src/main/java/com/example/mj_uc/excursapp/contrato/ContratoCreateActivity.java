@@ -37,5 +37,10 @@ public interface ContratoCreateActivity {
          * Save activity.
          */
         void saveActivity();
+
+        /**
+         * Go to vista imagenes.
+         */
+        void goToVistaImagenes();
     }
 }

@@ -165,17 +165,7 @@ public class CreateActivity extends AppCompatActivity implements ContratoCreateA
     }
 
     private void setOnClickInInsertarImagen() {
-        Intent i = new Intent(CreateActivity.this, VistaImagenes.class);
-        i.putExtra("tituloAct", tituloAct.getText().toString());
-        i.putExtra("lugar", lugarActividad.getText().toString());
-        i.putExtra("direccion", direccion.getText().toString());
-        i.putExtra("profesores", profesores.getText().toString());
-        i.putExtra("grupos", grupos.getText().toString());
-        i.putExtra("fecha", fechaSalida.getText().toString());
-        i.putExtra("horaSalida", HoraSalida.getText().toString());
-        i.putExtra("horaLlegada", HoraLlegada.getText().toString());
-        i.putExtra("descripcion", descripcion.getText().toString());
-        startActivity(i);
+        presentador.goToVistaImagenes();
     }
 
     private void setOnClickInHoraLlegada() {
@@ -562,5 +552,14 @@ public class CreateActivity extends AppCompatActivity implements ContratoCreateA
      */
     public List<String> getNomGrupos() {
         return NomGrupos;
+    }
+
+    /**
+     * Gets profesores.
+     *
+     * @return the profesores
+     */
+    public TextView getProfesores() {
+        return profesores;
     }
 }
