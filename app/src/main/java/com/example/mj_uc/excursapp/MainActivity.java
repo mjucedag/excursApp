@@ -22,6 +22,7 @@ import com.example.mj_uc.excursapp.contrato.ContratoMainActivity;
 import com.example.mj_uc.excursapp.dagger.MainModule;
 import com.example.mj_uc.excursapp.modelo.Adapter.AlbumAdapter;
 import com.example.mj_uc.excursapp.modelo.Album;
+import com.example.mj_uc.excursapp.tools.Tools;
 import com.example.mj_uc.excursapp.vista.RecycleViewTools.GridSpacingItemDecoration;
 import com.example.mj_uc.excursapp.vista.navigationDrawer.DrawerHeader;
 import com.example.mj_uc.excursapp.vista.navigationDrawer.DrawerMenuItem;
@@ -117,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements ContratoMainActiv
     public void initializeRecyclerView() {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, Tools.dpToPx(10, this), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
     }
@@ -197,26 +198,4 @@ public class MainActivity extends AppCompatActivity implements ContratoMainActiv
         mDrawer.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
     }
-
-
-    /*convert dp a pixel*/
-    private int dpToPx(int dp) {
-        Resources r = getResources();
-        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
-    }
-
- /*
-    @Override
-    public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length >
-                        && grantResults[] == PackageManager.PERMISSION_GRANTED) {
-                } else {
-                }
-                return;
-            }
-        }
-    }*/
 }

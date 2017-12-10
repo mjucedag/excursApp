@@ -47,14 +47,5 @@ public interface ContratoMainActivity {
          * Prepare albums to the first rendering view.
          */
         void prepareAlbums();
-
-        /**
-         * Gets nombre profesor.
-         *
-         * @param objectJsons the object jsons
-         * @param idProfesor  the id profesor
-         * @return the nombre profesor
-         */
-        String getNombreProfesor(ObjectJson objectJsons, Integer idProfesor);
     }
 }

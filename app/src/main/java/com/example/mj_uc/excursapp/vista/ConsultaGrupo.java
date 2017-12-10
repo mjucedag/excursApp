@@ -1,6 +1,5 @@
 package com.example.mj_uc.excursapp.vista;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
@@ -9,16 +8,14 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.View;
 
 import com.example.mj_uc.excursapp.R;
 import com.example.mj_uc.excursapp.contrato.ContratoConsultaGrupo;
-import com.example.mj_uc.excursapp.contrato.ContratoMainActivity;
 import com.example.mj_uc.excursapp.dagger.ConsultaGrupoModule;
-import com.example.mj_uc.excursapp.dagger.MainModule;
 import com.example.mj_uc.excursapp.modelo.Adapter.AlbumAdapter;
 import com.example.mj_uc.excursapp.modelo.Album;
+import com.example.mj_uc.excursapp.tools.Tools;
 import com.example.mj_uc.excursapp.vista.RecycleViewTools.GridSpacingItemDecoration;
 
 import java.util.ArrayList;
@@ -28,9 +25,11 @@ import javax.inject.Inject;
 
 import dagger.ObjectGraph;
 
+/**
+ * The type Consulta grupo.
+ */
 public class ConsultaGrupo extends AppCompatActivity implements ContratoConsultaGrupo.Vista{
 
-    private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
     private RecyclerView recyclerView;
     private AlbumAdapter adapter;
     private List<Album> albumList;
@@ -87,31 +86,22 @@ public class ConsultaGrupo extends AppCompatActivity implements ContratoConsulta
         initializeFabButton();
 
         presentador.doQueryConsult();
-
-        Album foto = new Album(1,"foto 1", "MARIA JOSE UCEDA", ".....", "24-08-2018");
-        albumList.add(foto);
-        foto = new Album(1,"foto 1", "MARIA JOSE UCEDA", ".....", "24-08-2018");
-        albumList.add(foto);
-        foto = new Album(1,"foto 1", "MARIA JOSE UCEDA", ".....", "24-08-2018");
-        albumList.add(foto);
-        foto = new Album(1,"foto 1", "MARIA JOSE UCEDA", ".....", "24-08-2018");
-        albumList.add(foto);
-        foto = new Album(1,"foto 1", "MARIA JOSE UCEDA", ".....", "24-08-2018");
-        albumList.add(foto);
-        foto = new Album(1,"foto 1", "MARIA JOSE UCEDA", ".....", "24-08-2018");
-        albumList.add(foto);
-
-        getAdapter().notifyDataSetChanged();
     }
 
+    /**
+     * Initialize recycler view.
+     */
     public void initializeRecyclerView() {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, Tools.dpToPx(10, this), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
     }
 
+    /**
+     * Initialize fab button.
+     */
     public void initializeFabButton() {
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
@@ -134,11 +124,5 @@ public class ConsultaGrupo extends AppCompatActivity implements ContratoConsulta
                 scrollView.setScrollY(0);
             }
         });
-    }
-
-    /*convert dp a pixel*/
-    private int dpToPx(int dp) {
-        Resources r = getResources();
-        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
 }

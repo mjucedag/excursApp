@@ -16,6 +16,7 @@ import com.example.mj_uc.excursapp.R;
 import com.example.mj_uc.excursapp.contrato.ContratoMainActivity;
 import com.example.mj_uc.excursapp.modelo.Adapter.AlbumAdapter;
 import com.example.mj_uc.excursapp.modelo.Album;
+import com.example.mj_uc.excursapp.tools.Tools;
 import com.example.mj_uc.excursapp.vista.RecycleViewTools.GridSpacingItemDecoration;
 
 import java.util.ArrayList;
@@ -97,7 +98,7 @@ public class ConsultaFecha extends AppCompatActivity {
     public void initializeRecyclerView() {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, dpToPx(10), true));
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(1, Tools.dpToPx(10, this), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
     }
@@ -124,11 +125,5 @@ public class ConsultaFecha extends AppCompatActivity {
                 scrollView.setScrollY(0);
             }
         });
-    }
-
-    /*convert dp a pixel*/
-    private int dpToPx(int dp) {
-        Resources r = getResources();
-        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
 }
