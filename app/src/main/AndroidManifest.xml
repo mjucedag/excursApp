@@ -26,12 +26,12 @@
             android:label="Actividades"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".ConsultaGrupo"
+        <activity android:name=".vista.ConsultaGrupo"
             android:label="Consulta por Grupo/s"
             android:theme="@style/AppThemeWithActionBar"
             android:parentActivityName=".MainActivity"/>
 
-        <activity android:name=".ConsultaFecha"
+        <activity android:name=".vista.ConsultaFecha"
             android:label="Consulta por Fecha/s"
             android:theme="@style/AppThemeWithActionBar"
             android:parentActivityName=".MainActivity"/>

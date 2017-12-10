@@ -16,6 +16,8 @@ import com.example.mj_uc.excursapp.apirest.WebResponse;
 import com.example.mj_uc.excursapp.contrato.ContratoDrawerMenu;
 import com.example.mj_uc.excursapp.modelo.Pojo.Actividad;
 import com.example.mj_uc.excursapp.modelo.Pojo.Grupo;
+import com.example.mj_uc.excursapp.vista.ConsultaFecha;
+import com.example.mj_uc.excursapp.vista.ConsultaGrupo;
 import com.example.mj_uc.excursapp.vista.CreateActivity;
 import com.example.mj_uc.excursapp.vista.Help.Help;
 import com.google.gson.Gson;
@@ -79,7 +81,7 @@ public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador, We
     }
 
     @Override
-    public void createAlertDialog(List<CharSequence> list, String title) {
+    public void createAlertDialog(List<CharSequence> list, String title, final Class intentClass) {
         // Initialize  readable sequence of char values
         final CharSequence[] dialogList = list.toArray(new CharSequence[list.size()]);
         final AlertDialog.Builder builderDialog = new AlertDialog.Builder(mainActivity, AlertDialog.THEME_HOLO_LIGHT);
@@ -101,7 +103,7 @@ public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador, We
                 for (int i = 0; i < list.getCount(); i++) {
                     boolean checked = list.isItemChecked(i);
                     if (checked) {
-                        if (stringBuilder.length() > 0) stringBuilder.append(",");
+                        if (stringBuilder.length() > 0) stringBuilder.append("#");
                         stringBuilder.append(list.getItemAtPosition(i));
                     }
                 }
@@ -110,6 +112,10 @@ public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador, We
                     dialog.cancel();
                 } else {
                     //Ir a la otra ventana, pasando los valores concatenados por "," del stringbuilder
+                    //TODO: cambiar el nombre por ID en el strinbuilder
+                    Intent goToQuery = new Intent(mainActivity, intentClass);
+                    goToQuery.putExtra("IDS_QUERY", stringBuilder.toString());
+                    mainActivity.startActivity(goToQuery);
                 }
             }
         });
@@ -150,7 +156,7 @@ public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador, We
         for (Grupo grupo : grupos) {
             list.add(grupo.getNombre());
         }
-        createAlertDialog(list, "Selecciona uno o más grupos");
+        createAlertDialog(list, "Selecciona uno o más grupos", ConsultaGrupo.class);
     }
 
     private void onDateMenuResponseService(String response) {
@@ -176,6 +182,6 @@ public class PresentadorDrawerMenu implements ContratoDrawerMenu.Presentador, We
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        createAlertDialog(list, "Selecciona una o más fechas");
+        createAlertDialog(list, "Selecciona una o más fechas", ConsultaFecha.class);
     }
 }

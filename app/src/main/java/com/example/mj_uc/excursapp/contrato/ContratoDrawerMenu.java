@@ -47,6 +47,6 @@ public interface ContratoDrawerMenu {
          * @param list  the list
          * @param title the title
          */
-        void createAlertDialog(List<CharSequence> list, String title);
+        void createAlertDialog(List<CharSequence> list, String title, final Class intentClass);
     }
 }

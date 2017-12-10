@@ -1,4 +1,4 @@
-package com.example.mj_uc.excursapp;
+package com.example.mj_uc.excursapp.vista;
 
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -12,7 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
 
+import com.example.mj_uc.excursapp.R;
+import com.example.mj_uc.excursapp.contrato.ContratoConsultaGrupo;
 import com.example.mj_uc.excursapp.contrato.ContratoMainActivity;
+import com.example.mj_uc.excursapp.dagger.ConsultaGrupoModule;
+import com.example.mj_uc.excursapp.dagger.MainModule;
 import com.example.mj_uc.excursapp.modelo.Adapter.AlbumAdapter;
 import com.example.mj_uc.excursapp.modelo.Album;
 import com.example.mj_uc.excursapp.vista.RecycleViewTools.GridSpacingItemDecoration;
@@ -22,7 +26,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class ConsultaGrupo extends AppCompatActivity{
+import dagger.ObjectGraph;
+
+public class ConsultaGrupo extends AppCompatActivity implements ContratoConsultaGrupo.Vista{
 
     private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
     private RecyclerView recyclerView;
@@ -36,7 +42,7 @@ public class ConsultaGrupo extends AppCompatActivity{
      * The Presentador.
      */
     @Inject
-    ContratoMainActivity.Presentador presentador;
+    ContratoConsultaGrupo.Presentador presentador;
 
     /**
      * Gets adapter.
@@ -61,6 +67,12 @@ public class ConsultaGrupo extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.consulta_grupo);
 
+        // Inyecta las clases con Dagger. Esto solo lo tenemos aquí por simplicidad.
+        ObjectGraph objectGraph = ObjectGraph.create(new ConsultaGrupoModule());
+        objectGraph.inject(this);
+
+        presentador.setVista(this);
+
         //*****
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         nestedScrollView = (NestedScrollView) findViewById(R.id.scroll_view);
@@ -69,10 +81,12 @@ public class ConsultaGrupo extends AppCompatActivity{
         adapter = new AlbumAdapter(this, albumList);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //pone la flecha
-
-
-
         initializeRecyclerView();
+
+        //botón flotante
+        initializeFabButton();
+
+        presentador.doQueryConsult();
 
         Album foto = new Album(1,"foto 1", "MARIA JOSE UCEDA", ".....", "24-08-2018");
         albumList.add(foto);
@@ -88,9 +102,6 @@ public class ConsultaGrupo extends AppCompatActivity{
         albumList.add(foto);
 
         getAdapter().notifyDataSetChanged();
-
-        //botón flotante
-        initializeFabButton();
     }
 
     public void initializeRecyclerView() {

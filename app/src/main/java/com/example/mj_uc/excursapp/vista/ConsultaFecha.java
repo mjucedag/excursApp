@@ -1,4 +1,4 @@
-package com.example.mj_uc.excursapp;
+package com.example.mj_uc.excursapp.vista;
 
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
 
+import com.example.mj_uc.excursapp.R;
 import com.example.mj_uc.excursapp.contrato.ContratoMainActivity;
 import com.example.mj_uc.excursapp.modelo.Adapter.AlbumAdapter;
 import com.example.mj_uc.excursapp.modelo.Album;
