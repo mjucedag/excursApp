@@ -82,7 +82,7 @@ public class VerActividad extends AppCompatActivity implements ContratoVerActivi
         if (idMenu == R.id.pdf) {
             presentador.doPhotoPrint();
         } else if (idMenu == R.id.editar) {
-
+            presentador.editActividad(idActividad);
         } else if (idMenu == R.id.papelera) {
             presentador.deleteActividad(idActividad);
         }

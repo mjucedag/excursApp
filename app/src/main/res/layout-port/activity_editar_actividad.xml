@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/celeste"
+    android:backgroundTint="@color/celeste"
+    tools:context=".vista.EditarActividad">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@mipmap/sinfoto" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/insertarImagen"
+        android:layout_alignBottom="@+id/insertarImagen"
+        android:layout_alignStart="@+id/tituloAct"
+        android:layout_marginLeft="10dp"
+        android:text="@string/campos"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/insertarImagen"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_alignEnd="@+id/lugarActividad"
+        android:layout_below="@+id/imageView"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="@color/azulOscuro"
+        android:text="@string/insertar"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@android:color/background_light" />
+
+    <EditText
+        android:id="@+id/tituloAct"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/insertarImagen"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:drawableTint="@color/azulOscuro"
+        android:ems="10"
+        android:foregroundTintMode="screen"
+        android:hint="@string/titAct"
+        android:inputType="textPersonName"
+        android:paddingLeft="3dp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/lugarActividad"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/direccion"
+        android:layout_below="@+id/tituloAct"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="Lugar de la Actividad*"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/direccion"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/lugarActividad"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="Dirección*"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/fechaSalida"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/grupos"
+        android:layout_below="@+id/HoraLlegada"
+        android:ems="10"
+        android:hint="Fecha de Salida*"
+        android:inputType="date"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/horaSalida"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:layout_above="@+id/descripcion"
+        android:layout_alignStart="@+id/fechaSalida"
+        android:layout_marginBottom="7dp"
+        android:ems="10"
+        android:hint="Hora de Salida*"
+        android:inputType="date"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/HoraLlegada"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:layout_alignBaseline="@+id/horaSalida"
+        android:layout_alignBottom="@+id/horaSalida"
+        android:layout_alignEnd="@+id/insertarImagen"
+        android:ems="10"
+        android:hint="Hora de Llegada*"
+        android:inputType="date"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/horaSalida"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="Descripción*"
+        android:inputType="textPersonName"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/profesores"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/direccion"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/grupos"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/profesores"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

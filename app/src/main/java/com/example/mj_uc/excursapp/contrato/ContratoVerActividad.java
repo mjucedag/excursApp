@@ -43,5 +43,12 @@ public interface ContratoVerActividad {
          * Do photo print.
          */
         void doPhotoPrint();
+
+        /**
+         * Edit actividad.
+         *
+         * @param id the id
+         */
+        void editActividad(final Integer id);
     }
 }

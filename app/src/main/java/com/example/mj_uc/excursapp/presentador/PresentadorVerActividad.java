@@ -23,6 +23,7 @@ import com.example.mj_uc.excursapp.modelo.Pojo.Actividad;
 import com.example.mj_uc.excursapp.modelo.Pojo.Grupo;
 import com.example.mj_uc.excursapp.modelo.Pojo.ObjectJson;
 import com.example.mj_uc.excursapp.modelo.Pojo.Profesor;
+import com.example.mj_uc.excursapp.vista.EditarActividad;
 import com.example.mj_uc.excursapp.vista.VerActividad;
 import com.google.gson.Gson;
 
@@ -191,5 +192,12 @@ public class PresentadorVerActividad implements ContratoVerActividad.Presentador
         photoPrinter.setScaleMode(PrintHelper.SCALE_MODE_FIT); // CAPTURA DE TODA LA PANTALLA
         Bitmap bitmap = takeScreenshot();
         photoPrinter.printBitmap("actividadPDP.jpg - test print", bitmap);
+    }
+
+    @Override
+    public void editActividad(final Integer idActividad) {
+        Intent i = new Intent(verActividad, EditarActividad.class);
+        i.putExtra("idActividad", idActividad);
+        verActividad.startActivity(i);
     }
 }
