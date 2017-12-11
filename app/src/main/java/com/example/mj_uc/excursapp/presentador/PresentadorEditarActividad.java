@@ -163,11 +163,38 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         Context context = editarActividad.getImageView().getContext();
         int id = context.getResources().getIdentifier(nomFoto, "drawable", context.getPackageName());
         editarActividad.getImageView().setImageResource(id);
+        
+        setProfesoresChecked();
+        setGruposChecked();
 
         // DEVUELVE EL ARRAY DE PROFESORES
         editarActividad.setProfesoresArray(getArrayNombreProfesores());
         // DEVUELVE EL ARRAY DE GRUPOS
         editarActividad.setGrupo(getArrayNombreGrupos());
+    }
+
+    private void setGruposChecked() {
+
+        List<Grupo> NOMBREGRUPO = editarActividad.getObjectJson().getGrupo();
+        for (Grupo grupo : NOMBREGRUPO) {
+            for (int i = 0; i < editarActividad.getIdGrupos().size(); i++) {
+                if (grupo.getId() == editarActividad.getIdGrupos().get(i)){
+                    editarActividad.getGrupos().setText(editarActividad.getGrupos().getText() + " , " + grupo.getNombre());
+                }
+            }
+        }
+    }
+
+    private void setProfesoresChecked() {
+
+        List<Profesor> NOMBREPRFESOR = editarActividad.getObjectJson().getProfesor();
+        for (Profesor profesor: NOMBREPRFESOR) {
+            for (int i = 0; i < editarActividad.getIdprofesor().size(); i++) {
+                if (profesor.getId()== editarActividad.getIdprofesor().get(i)){
+                    editarActividad.getProfesores().setText(editarActividad.getProfesores().getText() + " " + profesor.getNombre());
+                }
+            }
+        }
     }
 
     private String[] getArrayNombreProfesores() {
