@@ -1,114 +1,41 @@
 package com.example.mj_uc.excursapp.vista.Help;
 
-import android.content.Intent;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.example.mj_uc.excursapp.R;
+import com.example.mj_uc.excursapp.contrato.ContratoHelpActivity;
+import com.example.mj_uc.excursapp.dagger.HelpActivityModule;
+import com.example.mj_uc.excursapp.databinding.HelpBinding;
+import com.example.mj_uc.excursapp.presentador.PresentadorHelpActivity;
+
+import javax.inject.Inject;
+
+import dagger.ObjectGraph;
 
 /**
  * The type Help.
  */
-public class Help extends AppCompatActivity {
+public class Help extends AppCompatActivity implements ContratoHelpActivity.Vista{
 
-    private ImageButton crearImg;
-    private TextView crear;
-    private ImageButton filtroImg;
-    private TextView filtro;
-    private ImageButton imprimirImg;
-    private TextView imprimir;
-    private ImageButton editarImg;
-    private TextView editar;
-    private ImageButton borrarImg;
-    private TextView borrar;
+    /**
+     * The Presentador.
+     */
+    @Inject
+    ContratoHelpActivity.Presentador presentador;
 
     private void init() {
-        crearImg = (ImageButton) findViewById(R.id.crearImg);
-        crear = (TextView) findViewById(R.id.crear);
-        filtroImg = (ImageButton)findViewById(R.id.filtrarImg);
-        filtro = (TextView)findViewById(R.id.filtrar);
-        imprimirImg = (ImageButton)findViewById(R.id.imprimirImg);
-        imprimir = (TextView) findViewById(R.id.imprimir);
-        editarImg =  (ImageButton) findViewById(R.id.editarImg);
-        editar = (TextView) findViewById(R.id.editar);
-        borrarImg = (ImageButton)findViewById(R.id.borrarImg);
-        borrar = (TextView) findViewById(R.id.borrar);
 
-        crearImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Help.this, HelpCreate.class);
-                startActivity(i);
-            }
-        });
-        crear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Help.this, HelpCreate.class);
-                startActivity(i);
-            }
-        });
-        filtroImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Help.this, HelpSearch.class);
-                startActivity(i);
-            }
-        });
-        filtro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Help.this, HelpSearch.class);
-                startActivity(i);
-            }
-        });
-        imprimirImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Help.this, HelpPrint.class);
-                startActivity(i);
-            }
-        });
-        imprimir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Help.this, HelpPrint.class);
-                startActivity(i);
-            }
-        });
-        editar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Help.this, HelpEdit.class);
-                startActivity(i);
-            }
-        });
-        editarImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Help.this, HelpEdit.class);
-                startActivity(i);
-            }
-        });
-        borrarImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Help.this, HelpDelete.class);
-                startActivity(i);
-            }
-        });
-        borrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Help.this, HelpDelete.class);
-                startActivity(i);
-            }
-        });
+        HelpBinding binding = DataBindingUtil.setContentView(this, R.layout.help);
+
+        // Inyecta las clases con Dagger. Esto solo lo tenemos aquí por simplicidad.
+        ObjectGraph objectGraph = ObjectGraph.create(new HelpActivityModule());
+        objectGraph.inject(this);
+
+        presentador.setVista(this);
+        binding.setPresenter((PresentadorHelpActivity) presentador);
     }
 
     @Override
