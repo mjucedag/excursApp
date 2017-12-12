@@ -24,4 +24,6 @@ public class Constants {
      */
     public static final int[] idImg = {R.drawable.alhambra, R.drawable.aplicaciones, R.drawable.devfest, R.drawable.futbol,
             R.drawable.parqueciencias, R.drawable.ptmalaga, R.drawable.robotica, R.drawable.senderismo, R.drawable.sierranevada};
+
+    public static final String EDIT_CLASS_NAME = "com.example.mj_uc.excursapp.vista.EditarActividad";
 }

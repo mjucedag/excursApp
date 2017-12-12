@@ -39,6 +39,9 @@ public interface ContratoEditarActividad {
          */
         void goToVistaImagenes();
 
+        /**
+         * Recoger datos actividad.
+         */
         void recogerDatosActividad();
     }
 }

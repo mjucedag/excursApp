@@ -26,7 +26,7 @@ public class Tools {
      * @return the string
      */
     public static String removeExtension(String fileName) {
-        if(fileName.contains(".")){
+        if (fileName != null && fileName.contains(".")) {
             return fileName.substring(0, fileName.lastIndexOf('.'));
         }
         return fileName;
@@ -64,9 +64,14 @@ public class Tools {
             String titulo = actividad.getTitulo();
             String imagen = actividad.getImg();
             //Nos hace falta recuperar el NOMBRE del profesor, no el ID. pero en actividad solo tenemos el ID
-            Integer idProfesor = actividad.getProfesores().get(0);//controla el null
-            // metodo (IDPROFESOR), TE DEVUELVA EL NOMBRE DE ESE PROFESOR
-            String nombreProfesor = getNombreProfesor(objectJsons, idProfesor);
+            String nombreProfesor;
+            try{
+                Integer idProfesor = actividad.getProfesores().get(0);//controla el null
+                nombreProfesor = getNombreProfesor(objectJsons, idProfesor);
+            }catch (IndexOutOfBoundsException ex){
+                nombreProfesor = "";
+            }
+
             //entonces, cuando ya tengas el nombre, ya puedes crearte tu objeto ALBUM
             String fecha = actividad.getFechasalida();
             albumOrdenadoFecha.add(new Album(id, titulo, nombreProfesor, imagen, fecha));
@@ -90,5 +95,47 @@ public class Tools {
             }
         }
         return "";
+    }
+
+    /**
+     * <p>Checks if a CharSequence is whitespace, empty ("") or null.</p>
+     *
+     * <pre>
+     * StringUtils.isEmpty(null)      = true
+     * StringUtils.isEmpty("")        = true
+     * StringUtils.isEmpty(" ")       = true
+     * StringUtils.isEmpty("bob")     = false
+     * StringUtils.isEmpty("  bob  ") = false
+     * </pre>
+     *
+     * @param cs the CharSequence to check, may be null
+     * @return {@code true} if the CharSequence is null, empty or whitespace
+     */
+    public static boolean isEmpty(CharSequence cs) {
+        int strLen;
+        if (cs == null || (strLen = cs.length()) == 0) {
+            return true;
+        }
+        for (int i = 0; i < strLen; i++) {
+            if (Character.isWhitespace(cs.charAt(i)) == false) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * <p>Checks if a string array is whitespace, empty ("") or null.</p>
+     *
+     * @param strArr the String array to check
+     * @return {@code true} if one string is null, empty or whitespace
+     */
+    public static boolean stringsEmptyValidator(String... strArr) {
+        for (String st : strArr) {
+            if  (isEmpty(st))
+                return true;
+
+        }
+        return false;
     }
 }

@@ -17,6 +17,7 @@ import com.example.mj_uc.excursapp.modelo.Pojo.Actividad;
 import com.example.mj_uc.excursapp.modelo.Pojo.Grupo;
 import com.example.mj_uc.excursapp.modelo.Pojo.ObjectJson;
 import com.example.mj_uc.excursapp.modelo.Pojo.Profesor;
+import com.example.mj_uc.excursapp.tools.Constants;
 import com.example.mj_uc.excursapp.tools.Tools;
 import com.example.mj_uc.excursapp.vista.CreateActivity;
 import com.example.mj_uc.excursapp.vista.EditarActividad;
@@ -68,12 +69,19 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         actividad.setHorallegada(editarActividad.getHoraLlegada().getText().toString());
         actividad.setGrupos(devIdGrupo());
         actividad.setProfesores(devIdProfesor());
+
+        if(editarActividad.getIntent().getExtras() != null && editarActividad.getIntent().getExtras().getString("nombre") != null){
+            actividad.setImg(editarActividad.getIntent().getExtras().getString("nombre"));
+        }else{
+            actividad.setImg(editarActividad.getNameImagen());
+        }
+
         // Generamos el JSON
         String jsonString = new Gson().toJson(actividad);
         Toast.makeText(editarActividad, "...", Toast.LENGTH_SHORT).show();
 
         typeResponseService = PresentadorEditarActividad.CREATE_ACTIVITY;
-        APIConnection.getConnection("https://apirest-mjuceda.c9users.io/actividad", WebRequest.PUTRequest, this, jsonString);
+        APIConnection.getConnection("https://apirest-mjuceda.c9users.io/actividad/"+idActividad, WebRequest.PUTRequest, this, jsonString);
     }
 
     @Override
@@ -89,6 +97,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         i.putExtra("horaSalida", editarActividad.getHoraSalida().getText().toString());
         i.putExtra("horaLlegada", editarActividad.getHoraLlegada().getText().toString());
         i.putExtra("descripcion", editarActividad.getDescripcion().getText().toString());
+        i.putExtra("className", Constants.EDIT_CLASS_NAME);
         editarActividad.startActivity(i);
     }
 
@@ -163,6 +172,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         Context context = editarActividad.getImageView().getContext();
         int id = context.getResources().getIdentifier(nomFoto, "drawable", context.getPackageName());
         editarActividad.getImageView().setImageResource(id);
+        editarActividad.setNameImagen(actividades.getImg()); //set the name of the image
         
         setProfesoresChecked();
         setGruposChecked();
@@ -244,6 +254,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         List<Grupo> NOMBREGRUPO = editarActividad.getObjectJson().getGrupo();
         List<Integer> idGrupos = new ArrayList<>();
 
+        //We need get name of group which has been selected:
         for (int i = 0; i < NOMBREGRUPO.size(); i++) {
             for (int j = 0; j < editarActividad.getNombresGrupos().size(); j++) {
                 if ((NOMBREGRUPO.get(i).getNombre()).equalsIgnoreCase(editarActividad.getNombresGrupos().get(j))) {

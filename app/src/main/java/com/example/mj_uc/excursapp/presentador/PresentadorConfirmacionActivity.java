@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.example.mj_uc.excursapp.contrato.ContratoConfirmacionActivity;
 import com.example.mj_uc.excursapp.contrato.ContratoVistaImagenes;
+import com.example.mj_uc.excursapp.tools.Tools;
 import com.example.mj_uc.excursapp.vista.ConfirmacionActivity;
 import com.example.mj_uc.excursapp.vista.CreateActivity;
 import com.example.mj_uc.excursapp.vista.VistaImagenes;
@@ -29,7 +30,17 @@ public class PresentadorConfirmacionActivity implements ContratoConfirmacionActi
         ConfirmacionActivity confirmacionActivity = (ConfirmacionActivity) vista;
 
         Toast.makeText(confirmacionActivity, "Imagen seleccionada", Toast.LENGTH_LONG).show();
-        Intent i = new Intent(confirmacionActivity, CreateActivity.class);
+
+        Class intentClass = CreateActivity.class;
+        if(!Tools.isEmpty(confirmacionActivity.getClassName())){
+            try {
+                intentClass = Class.forName(confirmacionActivity.getClassName());
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        Intent i = new Intent(confirmacionActivity, intentClass);
         i.putExtra("idImg", confirmacionActivity.getId());
         i.putExtra("nombre", confirmacionActivity.getNom());
         i.putExtra("tituloAct", confirmacionActivity.getTitulo());
