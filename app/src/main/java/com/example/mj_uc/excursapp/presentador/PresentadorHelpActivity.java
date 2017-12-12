@@ -2,23 +2,18 @@ package com.example.mj_uc.excursapp.presentador;
 
 
 import android.content.Intent;
-import android.widget.Toast;
 
-import com.example.mj_uc.excursapp.contrato.ContratoConfirmacionActivity;
 import com.example.mj_uc.excursapp.contrato.ContratoHelpActivity;
-import com.example.mj_uc.excursapp.vista.ConfirmacionActivity;
-import com.example.mj_uc.excursapp.vista.CreateActivity;
 import com.example.mj_uc.excursapp.vista.Help.Help;
 import com.example.mj_uc.excursapp.vista.Help.HelpCreate;
 import com.example.mj_uc.excursapp.vista.Help.HelpDelete;
 import com.example.mj_uc.excursapp.vista.Help.HelpEdit;
 import com.example.mj_uc.excursapp.vista.Help.HelpPrint;
 import com.example.mj_uc.excursapp.vista.Help.HelpSearch;
-import com.example.mj_uc.excursapp.vista.VistaImagenes;
 
 
 /**
- * The type Presentador confirmacion activity.
+ * The type Presentador help activity.
  */
 public class PresentadorHelpActivity implements ContratoHelpActivity.Presentador {
 

@@ -8,10 +8,18 @@ import dagger.Module;
 import dagger.Provides;
 
 
+/**
+ * The type Help activity module.
+ */
 @Module(injects = {Help.class})
 public class HelpActivityModule {
 
 
+    /**
+     * Provide main activity presenter contrato help activity . presentador.
+     *
+     * @return the contrato help activity . presentador
+     */
     @Provides
     public ContratoHelpActivity.Presentador provideMainActivityPresenter(){
         return new PresentadorHelpActivity();
