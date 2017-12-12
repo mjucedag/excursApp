@@ -52,6 +52,7 @@ public class PresentadorConfirmacionActivity implements ContratoConfirmacionActi
         i.putExtra("horaSalida", confirmacionActivity.getHoraSalida());
         i.putExtra("horaLlegada", confirmacionActivity.getHoraLlegada());
         i.putExtra("descripcion", confirmacionActivity.getDescrip());
+        i.putExtra("idActividad", confirmacionActivity.getIdActividad());
 
         confirmacionActivity.startActivity(i);
     }

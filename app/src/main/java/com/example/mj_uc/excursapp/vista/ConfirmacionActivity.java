@@ -22,7 +22,7 @@ public class ConfirmacionActivity extends AppCompatActivity implements ContratoC
     private ImageView imageView;
     private Button cancelar, aceptar;
     private String titulo, dir, lugar, nomGuardados, nomGrupos, fechaGuardada, horaSalida, horaLlegada, descrip, nom, className;
-    private int id;
+    private int id, idActividad;
 
     /**
      * The Presentador.
@@ -51,6 +51,7 @@ public class ConfirmacionActivity extends AppCompatActivity implements ContratoC
             horaLlegada = b.getString("horaLlegada");
             descrip = b.getString("descripcion");
             className = b.getString("className");
+            idActividad = b.getInt("idActividad");
         }
 
         aceptar.setOnClickListener(new View.OnClickListener() {
@@ -198,12 +199,13 @@ public class ConfirmacionActivity extends AppCompatActivity implements ContratoC
         return className;
     }
 
+
     /**
-     * Sets class name.
+     * Gets id actividad.
      *
-     * @param className the class name
+     * @return the id actividad
      */
-    public void setClassName(String className) {
-        this.className = className;
+    public int getIdActividad() {
+        return idActividad;
     }
 }

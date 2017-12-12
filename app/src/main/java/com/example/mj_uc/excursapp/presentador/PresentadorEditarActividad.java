@@ -98,6 +98,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         i.putExtra("horaLlegada", editarActividad.getHoraLlegada().getText().toString());
         i.putExtra("descripcion", editarActividad.getDescripcion().getText().toString());
         i.putExtra("className", Constants.EDIT_CLASS_NAME);
+        i.putExtra("idActividad", idActividad);
         editarActividad.startActivity(i);
     }
 
@@ -181,6 +182,8 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         editarActividad.setProfesoresArray(getArrayNombreProfesores());
         // DEVUELVE EL ARRAY DE GRUPOS
         editarActividad.setGrupo(getArrayNombreGrupos());
+
+        //TODO: set
     }
 
     private void setGruposChecked() {
@@ -190,6 +193,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
             for (int i = 0; i < editarActividad.getIdGrupos().size(); i++) {
                 if (grupo.getId() == editarActividad.getIdGrupos().get(i)){
                     editarActividad.getGrupos().setText(editarActividad.getGrupos().getText() + " , " + grupo.getNombre());
+                    editarActividad.getNombresGrupos().add(grupo.getNombre());
                 }
             }
         }
@@ -202,6 +206,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
             for (int i = 0; i < editarActividad.getIdprofesor().size(); i++) {
                 if (profesor.getId()== editarActividad.getIdprofesor().get(i)){
                     editarActividad.getProfesores().setText(editarActividad.getProfesores().getText() + " " + profesor.getNombre());
+                    editarActividad.getNombresProfesores().add(profesor.getNombre());
                 }
             }
         }

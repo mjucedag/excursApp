@@ -23,6 +23,7 @@ import dagger.ObjectGraph;
 public class VistaImagenes extends AppCompatActivity implements ContratoVistaImagenes.Vista{
 
     private String titulo, dir, lugar, nomGuardados, nomGrupos, fechaGuardada, horaSalida, horaLlegada, descrip, className;
+    private int idActividad;
     private ListView mListView;
 
     /**
@@ -47,6 +48,7 @@ public class VistaImagenes extends AppCompatActivity implements ContratoVistaIma
             horaLlegada = b.getString("horaLlegada");
             descrip = b.getString("descripcion");
             className = b.getString("className");
+            idActividad = b.getInt("idActividad");
         }
 
         mListView = (ListView) findViewById(R.id.listview);
@@ -164,12 +166,13 @@ public class VistaImagenes extends AppCompatActivity implements ContratoVistaIma
         return className;
     }
 
+
     /**
-     * Sets class name.
+     * Gets id actividad.
      *
-     * @param className the class name
+     * @return the id actividad
      */
-    public void setClassName(String className) {
-        this.className = className;
+    public int getIdActividad() {
+        return idActividad;
     }
 }

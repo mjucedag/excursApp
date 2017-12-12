@@ -41,6 +41,7 @@ public class PresentadorVistaImagenes implements ContratoVistaImagenes.Presentad
         intent.putExtra("horaLlegada", vistaImagenesActivity.getHoraLlegada());
         intent.putExtra("descripcion", vistaImagenesActivity.getDescrip());
         intent.putExtra("className", vistaImagenesActivity.getClassName());
+        intent.putExtra("idActividad", vistaImagenesActivity.getIdActividad());
 
         vistaImagenesActivity.startActivity(intent);
     }

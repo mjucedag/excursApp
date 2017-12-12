@@ -26,4 +26,5 @@ public class Constants {
             R.drawable.parqueciencias, R.drawable.ptmalaga, R.drawable.robotica, R.drawable.senderismo, R.drawable.sierranevada};
 
     public static final String EDIT_CLASS_NAME = "com.example.mj_uc.excursapp.vista.EditarActividad";
+    public static final String CREATE_CLASS_NAME = "com.example.mj_uc.excursapp.vista.CreateActivity";
 }

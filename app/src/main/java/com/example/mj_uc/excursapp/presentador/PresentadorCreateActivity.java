@@ -13,6 +13,7 @@ import com.example.mj_uc.excursapp.modelo.Pojo.Actividad;
 import com.example.mj_uc.excursapp.modelo.Pojo.Grupo;
 import com.example.mj_uc.excursapp.modelo.Pojo.ObjectJson;
 import com.example.mj_uc.excursapp.modelo.Pojo.Profesor;
+import com.example.mj_uc.excursapp.tools.Constants;
 import com.example.mj_uc.excursapp.vista.CreateActivity;
 import com.example.mj_uc.excursapp.vista.VistaImagenes;
 import com.google.gson.Gson;
@@ -87,6 +88,7 @@ public class PresentadorCreateActivity implements ContratoCreateActivity.Present
         i.putExtra("horaSalida", createActivity.getHoraSalida().getText().toString());
         i.putExtra("horaLlegada", createActivity.getHoraLlegada().getText().toString());
         i.putExtra("descripcion", createActivity.getDescripcion().getText().toString());
+        i.putExtra("className", Constants.CREATE_CLASS_NAME);
         createActivity.startActivity(i);
     }
 
