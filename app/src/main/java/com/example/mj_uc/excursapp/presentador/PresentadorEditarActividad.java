@@ -167,14 +167,24 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         editarActividad.getFechaSalida().setText("Fecha de Salida -> " + actividades.getFechasalida());
         editarActividad.getHoraSalida().setText(actividades.getHorasalida().toString());
         editarActividad.getHoraLlegada().setText(actividades.getHorallegada().toString());
-        String nomFoto = actividades.getImg();
+
+        Intent i = editarActividad.getIntent();
+        Bundle b = i.getExtras();
+
+        String nomFoto = "";
+        if(b!= null && b.getString("nombre") != null){
+            nomFoto =  b.getString("nombre");
+        }else{
+            nomFoto = actividades.getImg();
+        }
+
         nomFoto = Tools.removeExtension(nomFoto);
 
         Context context = editarActividad.getImageView().getContext();
         int id = context.getResources().getIdentifier(nomFoto, "drawable", context.getPackageName());
         editarActividad.getImageView().setImageResource(id);
         editarActividad.setNameImagen(actividades.getImg()); //set the name of the image
-        
+
         setProfesoresChecked();
         setGruposChecked();
 
@@ -182,8 +192,6 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         editarActividad.setProfesoresArray(getArrayNombreProfesores());
         // DEVUELVE EL ARRAY DE GRUPOS
         editarActividad.setGrupo(getArrayNombreGrupos());
-
-        //TODO: set
     }
 
     private void setGruposChecked() {
