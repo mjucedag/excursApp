@@ -27,18 +27,21 @@
             android:text="@string/titulo"
             android:textAlignment="center"
             android:textSize="24sp"
-            android:textStyle="bold|italic" />
+            android:textColor="@color/azulOscuro"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/campoDescripcion"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="60dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/titulo"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:text="Descripcion"
-            android:textAlignment="center" />
+            android:textSize="16sp"
+            android:textAlignment="center"
+            />
 
         <View
             android:id="@+id/separador"
@@ -63,8 +66,9 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
             android:text="@string/prof"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textColor="@color/azulOscuro"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/campoProfesor"
@@ -73,7 +77,8 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/profesor"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="10dp"
+            android:textSize="16sp"/>
 
         <View
             android:id="@+id/separador2"
@@ -99,8 +104,9 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="16dp"
             android:text="@string/Lugar"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textColor="@color/azulOscuro"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/campoLugar"
@@ -110,7 +116,8 @@
             android:layout_below="@+id/lugar"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"/>
 
         <View
             android:id="@+id/separador3"
@@ -134,8 +141,9 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:text="@string/grupos"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textColor="@color/azulOscuro"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/campoGrupo"
@@ -143,7 +151,8 @@
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/Grupos"
-            android:layout_marginTop="11dp"/>
+            android:layout_marginTop="11dp"
+            android:textSize="16sp"/>
 
         <View
             android:id="@+id/separador4"
@@ -165,10 +174,10 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/campoDireccion"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
             android:text="@string/fecha"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textColor="@color/azulOscuro"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
 
         <View
             android:id="@+id/separador5"
@@ -193,8 +202,9 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:text="@string/dir"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textColor="@color/azulOscuro"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/campoDireccion"
@@ -203,7 +213,8 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView2"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="10dp"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/campoHora"
@@ -216,8 +227,7 @@
             android:layout_marginTop="5dp"
             android:text="TextView"
             android:textAllCaps="false"
-            android:textSize="18sp"
-            android:textStyle="bold|italic" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/campoFecha"
@@ -229,7 +239,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:text="TextView"
-            android:textSize="18sp"
-            android:textStyle="bold|italic" />
+            android:textSize="16sp"/>
 
 </RelativeLayout>
