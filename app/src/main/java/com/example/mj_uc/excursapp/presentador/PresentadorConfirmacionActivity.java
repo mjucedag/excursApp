@@ -63,6 +63,16 @@ public class PresentadorConfirmacionActivity implements ContratoConfirmacionActi
         ConfirmacionActivity confirmacionActivity = (ConfirmacionActivity) vista;
 
         Intent volver = new Intent(confirmacionActivity, VistaImagenes.class);
+        volver.putExtra("tituloAct", confirmacionActivity.getTitulo());
+        volver.putExtra("lugar", confirmacionActivity.getLugar());
+        volver.putExtra("direccion", confirmacionActivity.getDir());
+        volver.putExtra("profesores", confirmacionActivity.getNomGuardados());
+        volver.putExtra("grupos", confirmacionActivity.getNomGrupos());
+        volver.putExtra("fecha", confirmacionActivity.getFechaGuardada());
+        volver.putExtra("horaSalida", confirmacionActivity.getHoraSalida());
+        volver.putExtra("horaLlegada", confirmacionActivity.getHoraLlegada());
+        volver.putExtra("descripcion", confirmacionActivity.getDescrip());
+        volver.putExtra("idActividad", confirmacionActivity.getIdActividad());
         confirmacionActivity.startActivity(volver);
     }
 }
