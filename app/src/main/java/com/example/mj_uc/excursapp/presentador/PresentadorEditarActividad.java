@@ -44,6 +44,11 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
      */
     public static final int CREATE_ACTIVITY = 2;
 
+    /**
+     * The constant GET_JSON_DATA.
+     */
+    public static final int GET_JSON_DATA = 3;
+
     private ContratoEditarActividad.Vista vista;
     private EditarActividad editarActividad;
 
@@ -58,6 +63,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
     @Override
     public void saveActivity() {
 
+        editarActividad = (EditarActividad) vista;
         Actividad actividad = editarActividad.getActividades();
 
         actividad.setTitulo(editarActividad.getTituloAct().getText().toString());
@@ -114,8 +120,24 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
 
         if (b != null){
             idActividad = b.getInt("idActividad");
-            // ESTA PARTE IRIA ANTES DE HACER CUALQUIER PETICION, YA QUE TIENE EL ID
+
             typeResponseService = PresentadorEditarActividad.PREPARE_VIEW;
+            APIConnection.getConnection("https://apirest-mjuceda.c9users.io/db", WebRequest.GETRequest, this);
+        }
+    }
+
+    @Override
+    public void getDataToGetGruposAndProfesores() {
+
+        editarActividad = (EditarActividad) vista;
+
+        Intent i = editarActividad.getIntent();
+        Bundle b = i.getExtras();
+
+        if (b != null){
+            idActividad = b.getInt("idActividad");
+
+            typeResponseService = PresentadorEditarActividad.GET_JSON_DATA;
             APIConnection.getConnection("https://apirest-mjuceda.c9users.io/db", WebRequest.GETRequest, this);
         }
     }
@@ -130,7 +152,20 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
             case CREATE_ACTIVITY:
                 onCreateViewResponseService(response);
                 break;
+            case GET_JSON_DATA:
+                onGetJsonDataResponseService(response);
+                break;
         }
+    }
+
+    private void onGetJsonDataResponseService(String response) {
+        //We get the whole DB in order to get all elements and avoid several call to API Rest
+        editarActividad.setObjectJson(new Gson().fromJson(response, ObjectJson.class));
+
+        // DEVUELVE EL ARRAY DE PROFESORES
+        editarActividad.setProfesoresArray(getArrayNombreProfesores());
+        // DEVUELVE EL ARRAY DE GRUPOS
+        editarActividad.setGrupo(getArrayNombreGrupos());
     }
 
     private void onCreateViewResponseService(String response) {

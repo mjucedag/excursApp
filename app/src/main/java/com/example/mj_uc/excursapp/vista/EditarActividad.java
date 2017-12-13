@@ -95,17 +95,14 @@ public class EditarActividad extends AppCompatActivity implements ContratoEditar
 
         if (getIntent().getExtras() == null || getIntent().getExtras().getString("nombre") == null){
             presentador.recogerDatosActividad();
-            if (profesores.getText().equals("")){
+            if (Tools.isEmpty(profesores.getText())){
                 profesores.setText("Profesores*");
             }
-            if (grupos.getText().equals("")){
+            if (Tools.isEmpty(grupos.getText())){
                 grupos.setText("Grupos*");
             }
         }else{
-            // DEVUELVE EL ARRAY DE PROFESORES
-            profesoresArray = devArray();
-            // DEVUELVE EL ARRAY DE GRUPOS
-            grupo = devArrayGrupos();
+            presentador.getDataToGetGruposAndProfesores();
         }
     }
 
@@ -360,19 +357,6 @@ public class EditarActividad extends AppCompatActivity implements ContratoEditar
         presentador.setVista(this);
 
         initEditarActivity();
-    }
-
-    public String[] devArray(){
-        Resources res = getResources();
-        profesoresArray = res.getStringArray(R.array.profesor);
-        Arrays.sort(profesoresArray);
-        return profesoresArray;
-    }
-
-    public String[] devArrayGrupos(){
-        Resources res = getResources();
-        grupo = res.getStringArray(R.array.grupos);
-        return grupo;
     }
 
     /**

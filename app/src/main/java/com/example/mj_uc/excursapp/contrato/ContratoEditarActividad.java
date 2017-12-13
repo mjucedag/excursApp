@@ -43,5 +43,10 @@ public interface ContratoEditarActividad {
          * Recoger datos actividad.
          */
         void recogerDatosActividad();
+
+        /**
+         * Gets data to get grupos and profesores.
+         */
+        void getDataToGetGruposAndProfesores();
     }
 }
