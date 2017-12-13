@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="presenter"
+            type="com.example.mj_uc.excursapp.presentador.PresentadorHelpActivity"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".vista.Help.Help"
+        tools:layout_editor_absoluteY="81dp">
+
+
+        <ImageButton
+            android:id="@+id/crearImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="30dp"
+            android:background="#ffff"
+            android:src="@drawable/ic_note_add_black_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{() -> presenter.goToHelpCreate()}"/>
+
+        <TextView
+            android:id="@+id/crear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/crearImg"
+            android:layout_toEndOf="@+id/crearImg"
+            android:text="@string/comocrear"
+            android:textColor="#0431B4"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/crearImg"
+            app:layout_constraintTop_toTopOf="@+id/crearImg"
+            android:onClick="@{() -> presenter.goToHelpCreate()}"/>
+
+        <ImageButton
+            android:id="@+id/filtrarImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="30dp"
+            android:background="#ffff"
+            android:src="@drawable/ic_filter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/crearImg"
+            android:onClick="@{() -> presenter.goToHelpSearch()}"/>
+
+        <TextView
+            android:id="@+id/filtrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/comofiltrar"
+            android:textAlignment="viewStart"
+            android:textColor="#0431B4"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/filtrarImg"
+            app:layout_constraintTop_toTopOf="@+id/filtrarImg"
+            android:onClick="@{() -> presenter.goToHelpSearch()}"/>
+
+        <ImageButton
+            android:id="@+id/imprimirImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="30dp"
+            android:background="#ffff"
+            android:src="@drawable/ic_picture_as_pdf_black_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/filtrarImg"
+            android:onClick="@{() -> presenter.goToHelpPrint()}"/>
+
+        <TextView
+            android:id="@+id/imprimir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/comoimprimir"
+            android:textColor="#0431B4"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/imprimirImg"
+            app:layout_constraintTop_toTopOf="@+id/imprimirImg"
+            android:onClick="@{() -> presenter.goToHelpPrint()}"/>
+
+        <ImageButton
+            android:id="@+id/editarImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="30dp"
+            android:background="#ffff"
+            android:src="@drawable/editar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imprimirImg"
+            android:onClick="@{() -> presenter.goToHelpEdit()}"/>
+
+        <TextView
+            android:id="@+id/editar"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginBottom="19dp"
+            android:layout_marginTop="19dp"
+            android:text="@string/comoeditar"
+            android:textColor="#0431B4"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/borrarImg"
+            app:layout_constraintStart_toEndOf="@+id/editarImg"
+            app:layout_constraintTop_toBottomOf="@+id/imprimirImg"
+            android:onClick="@{() -> presenter.goToHelpEdit()}"/>
+
+        <ImageButton
+            android:id="@+id/borrarImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="30dp"
+            android:background="#ffff"
+            android:src="@drawable/papelera"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editarImg"
+            android:onClick="@{() -> presenter.goToHelpDelete()}"/>
+
+        <TextView
+            android:id="@+id/borrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text="@string/comoborrar"
+            android:textColor="#0431B4"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/borrarImg"
+            app:layout_constraintStart_toEndOf="@+id/borrarImg"
+            android:onClick="@{() -> presenter.goToHelpDelete()}"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

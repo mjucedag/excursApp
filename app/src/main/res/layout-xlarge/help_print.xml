@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vista.Help.HelpPrint"
+    tools:layout_editor_absoluteY="81dp">
+
+
+    <TextView
+        android:id="@+id/tvc1"
+        android:layout_width="752dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/help_print1"
+        android:textAlignment="viewStart"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvc11"
+        android:layout_width="752dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/help_print2"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvc1" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvc11"
+        app:layout_constraintEnd_toEndOf="@+id/tvc11"
+        app:layout_constraintHorizontal_bias="0.242"
+        app:layout_constraintStart_toStartOf="@+id/tvc11"
+        app:layout_constraintTop_toTopOf="@+id/tvc11"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/setting" />
+
+    <TextView
+        android:id="@+id/tvc2"
+        android:layout_width="752dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/help_print3"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvc11" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvc2"
+        app:layout_constraintEnd_toEndOf="@+id/tvc2"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/tvc2"
+        app:layout_constraintTop_toTopOf="@+id/tvc2"
+        app:layout_constraintVertical_bias="0.363"
+        app:srcCompat="@drawable/imprimirpdf" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="752dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/help_print4"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvc2" />
+
+</android.support.constraint.ConstraintLayout>
