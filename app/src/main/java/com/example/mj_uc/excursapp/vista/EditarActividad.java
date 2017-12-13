@@ -95,12 +95,7 @@ public class EditarActividad extends AppCompatActivity implements ContratoEditar
 
         if (getIntent().getExtras() == null || getIntent().getExtras().getString("nombre") == null){
             presentador.recogerDatosActividad();
-            if (Tools.isEmpty(profesores.getText())){
-                profesores.setText("Profesores*");
-            }
-            if (Tools.isEmpty(grupos.getText())){
-                grupos.setText("Grupos*");
-            }
+
         }else{
             presentador.getDataToGetGruposAndProfesores();
         }

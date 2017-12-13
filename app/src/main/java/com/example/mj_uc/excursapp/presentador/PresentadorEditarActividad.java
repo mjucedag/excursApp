@@ -214,7 +214,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
 
         setProfesoresChecked();
         setGruposChecked();
-
+        
         // DEVUELVE EL ARRAY DE PROFESORES
         editarActividad.setProfesoresArray(getArrayNombreProfesores());
         // DEVUELVE EL ARRAY DE GRUPOS
@@ -232,6 +232,9 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
                 }
             }
         }
+        if (Tools.isEmpty(editarActividad.getGrupos().getText())){
+            editarActividad.getGrupos().setText("Grupos*");
+        }
     }
 
     private void setProfesoresChecked() {
@@ -244,6 +247,9 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
                     editarActividad.getNombresProfesores().add(profesor.getNombre());
                 }
             }
+        }
+        if (Tools.isEmpty(editarActividad.getProfesores().getText())){
+            editarActividad.getProfesores().setText("Profesores*");
         }
     }
 
