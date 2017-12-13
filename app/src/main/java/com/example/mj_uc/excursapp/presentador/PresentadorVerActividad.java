@@ -11,6 +11,7 @@ import android.support.v4.print.PrintHelper;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.mj_uc.excursapp.MainActivity;
 import com.example.mj_uc.excursapp.R;
@@ -73,11 +74,11 @@ public class PresentadorVerActividad implements ContratoVerActividad.Presentador
     @Override
     public void deleteActividad(final Integer id) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(verActividad);
-        builder.setTitle("Borrar actividad").setMessage("¿Desea borrar esta actividad?").setIcon(R.drawable.ic_delete_black_24dp).setPositiveButton("Borrar", new DialogInterface.OnClickListener() {
+        final android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(verActividad, android.app.AlertDialog.THEME_HOLO_LIGHT);
+        builder.setTitle("Borrar actividad").setMessage("¿Desea borrar esta actividad?").setIcon(R.drawable.papelera_celeste).setPositiveButton("Borrar", new DialogInterface.OnClickListener() {
+
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
                 typeResponseService = PresentadorVerActividad.DELETE_ACTIVIDAD;
                 APIConnection.getConnection("https://apirest-mjuceda.c9users.io/actividad/" + id, WebRequest.DELETERequest, PresentadorVerActividad.this);
             }
@@ -87,7 +88,14 @@ public class PresentadorVerActividad implements ContratoVerActividad.Presentador
                 dialog.cancel();
             }
         });
-        builder.create().show();
+        android.app.AlertDialog alert = builder.create();
+        alert.show();
+        Button b = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+        b.setTextColor(verActividad.getResources().getColor(R.color.azulAlertDialog));
+        b.setTextSize(20);
+        Button b1 = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+        b1.setTextColor(verActividad.getResources().getColor(R.color.azulAlertDialog));
+        b1.setTextSize(20);
     }
 
     @Override
