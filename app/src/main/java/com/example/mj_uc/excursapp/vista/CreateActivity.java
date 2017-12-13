@@ -226,6 +226,7 @@ public class CreateActivity extends AppCompatActivity implements ContratoCreateA
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String p = "";
+                NomGrupos = new ArrayList<>();
                 for (int i = 0; i < seleccionado.size(); i++) {
                     p += gruposArray[seleccionado.get(i)];
                     NomGrupos.add(gruposArray[seleccionado.get(i)]);
@@ -266,6 +267,7 @@ public class CreateActivity extends AppCompatActivity implements ContratoCreateA
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String p = "";
+                NomProfesores = new ArrayList<>();
                 for (int i = 0; i < seleccionado.size(); i++) {
                     p += profesoresArray[seleccionado.get(i)];
                     NomProfesores.add(profesoresArray[seleccionado.get(i)]);
