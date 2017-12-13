@@ -71,13 +71,13 @@ public class EditarActividad extends AppCompatActivity implements ContratoEditar
         tituloAct = (EditText) findViewById(R.id.tituloAct);
         profesores = (TextView) findViewById(R.id.profesores);
         grupos = (TextView) findViewById(R.id.grupos);
-        lugarActividad = (EditText) findViewById(R.id.lugarActividad);
+        lugarActividad = (EditText) findViewById(R.id.lugar);
         direccion = (EditText) findViewById(R.id.direccion);
         imageView = (ImageView) findViewById(R.id.imageView);
         descripcion = (EditText) findViewById(R.id.descripcion);
         insertarImagen = (Button) findViewById(R.id.insertarImagen);
         fechaSalida = (TextView) findViewById(R.id.fechaSalida);
-        HoraSalida = (TextView) findViewById(R.id.horaSalida);
+        HoraSalida = (TextView) findViewById(R.id.HoraSalida);
         HoraLlegada = (TextView) findViewById(R.id.HoraLlegada);
 
         // INSTANCIAMOS EL CALENDARIO

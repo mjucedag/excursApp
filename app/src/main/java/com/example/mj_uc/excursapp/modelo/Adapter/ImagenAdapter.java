@@ -40,7 +40,7 @@ public class ImagenAdapter extends ArrayAdapter<String> {
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = mInflater.inflate(R.layout.listview_item, parent, false);
             mViewHolder.photo = (ImageView) convertView.findViewById(R.id.imageView);
-            mViewHolder.nomPhoto = (TextView) convertView.findViewById(R.id.titulo);
+            mViewHolder.nomPhoto = (TextView) convertView.findViewById(R.id.tituloAct);
             convertView.setTag(mViewHolder);
         } else {
             mViewHolder = (ViewHolder) convertView.getTag();
