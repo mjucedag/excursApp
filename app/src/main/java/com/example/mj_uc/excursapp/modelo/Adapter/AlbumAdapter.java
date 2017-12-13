@@ -52,8 +52,12 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
     public void onBindViewHolder(final MyViewHolder holder, int position){
         final Album album = albumList.get(position);
         holder.title.setText(album.getTitulo());
+        holder.title.setTextSize(20);
+
         holder.count.setText(album.getProfesor());
+        holder.count.setTextSize(17);
         holder.date.setText(album.getFecha());
+        holder.date.setTextSize(17);
 
         int resourceId = mc.getResources().getIdentifier(Tools.removeExtension(album.getImagen()), "drawable", mc.getPackageName());
 
