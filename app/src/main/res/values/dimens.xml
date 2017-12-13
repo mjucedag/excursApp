@@ -9,4 +9,5 @@
     <dimen name="text_margin">16dp</dimen>
     <dimen name="width_ima">1000dp</dimen>
     <dimen name="height_ima">260dp</dimen>
+    <dimen name="width_imaMovil"></dimen>
 </resources>
