@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -27,6 +28,7 @@ import com.example.mj_uc.excursapp.tools.Constants;
 import com.example.mj_uc.excursapp.tools.Tools;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -91,7 +93,20 @@ public class EditarActividad extends AppCompatActivity implements ContratoEditar
         displayImage();
         initEvents();
 
-        presentador.recogerDatosActividad();
+        if (getIntent().getExtras() == null || getIntent().getExtras().getString("nombre") == null){
+            presentador.recogerDatosActividad();
+            if (profesores.getText().equals("")){
+                profesores.setText("Profesores*");
+            }
+            if (grupos.getText().equals("")){
+                grupos.setText("Grupos*");
+            }
+        }else{
+            // DEVUELVE EL ARRAY DE PROFESORES
+            profesoresArray = devArray();
+            // DEVUELVE EL ARRAY DE GRUPOS
+            grupo = devArrayGrupos();
+        }
     }
 
     private void initEvents() {
@@ -184,9 +199,7 @@ public class EditarActividad extends AppCompatActivity implements ContratoEditar
             tituloAct.setText(c.getString("tituloAct"));
             lugarActividad.setText(c.getString("lugar"));
             direccion.setText(c.getString("direccion"));
-            profesores.setText("");
             profesores.setText(c.getString("profesores"));
-            grupos.setText("");
             grupos.setText(c.getString("grupos"));
             fechaSalida.setText(c.getString("fecha"));
             HoraSalida.setText(c.getString("horaSalida"));
@@ -347,6 +360,19 @@ public class EditarActividad extends AppCompatActivity implements ContratoEditar
         presentador.setVista(this);
 
         initEditarActivity();
+    }
+
+    public String[] devArray(){
+        Resources res = getResources();
+        profesoresArray = res.getStringArray(R.array.profesor);
+        Arrays.sort(profesoresArray);
+        return profesoresArray;
+    }
+
+    public String[] devArrayGrupos(){
+        Resources res = getResources();
+        grupo = res.getStringArray(R.array.grupos);
+        return grupo;
     }
 
     /**

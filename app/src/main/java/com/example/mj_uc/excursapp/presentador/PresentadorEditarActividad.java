@@ -87,6 +87,8 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
     @Override
     public void goToVistaImagenes() {
 
+        editarActividad = (EditarActividad) vista;
+
         Intent i = new Intent(editarActividad, VistaImagenes.class);
         i.putExtra("tituloAct", editarActividad.getTituloAct().getText().toString());
         i.putExtra("lugar", editarActividad.getLugarActividad().getText().toString());
@@ -167,17 +169,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         editarActividad.getFechaSalida().setText("Fecha de Salida -> " + actividades.getFechasalida());
         editarActividad.getHoraSalida().setText(actividades.getHorasalida().toString());
         editarActividad.getHoraLlegada().setText(actividades.getHorallegada().toString());
-
-        Intent i = editarActividad.getIntent();
-        Bundle b = i.getExtras();
-
-        String nomFoto = "";
-        if(b!= null && b.getString("nombre") != null){
-            nomFoto =  b.getString("nombre");
-        }else{
-            nomFoto = actividades.getImg();
-        }
-
+        String nomFoto = actividades.getImg();
         nomFoto = Tools.removeExtension(nomFoto);
 
         Context context = editarActividad.getImageView().getContext();

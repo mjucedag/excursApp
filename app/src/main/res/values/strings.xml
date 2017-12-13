@@ -70,4 +70,30 @@
     <string name="help_delete5">5. Aparecerá un mensaje temporal avisándote de que tu actividad ha sido borrada correctamente y de forma permanente.</string>
 
     <string name="guardar">Guardar Actividad</string>
+
+    <string-array name="profesor">
+        <item>Martinez Pepe</item>
+        <item>López, Juanma</item>
+        <item>Pérez, Antonio</item>
+        <item>Ruíz, Rosa</item>
+        <item>Rodríguez, Miguel</item>
+        <item>Moreno, Pedro</item>
+        <item>Flores, Amparo</item>
+        <item>Fernández, Aurora</item>
+        <item>González, María</item>
+        <item>Muñoz, Gerónimo</item>
+        <item>López, Javier</item>
+        <item>Martín, Felipe</item>
+    </string-array>
+    <string-array name="grupos">
+        <item>1º ESO A</item>
+        <item>1º ESO B</item>
+        <item>2º ESO A</item>
+        <item>2º ESO B</item>
+        <item>3º ESO A</item>
+        <item>3º ESO B</item>
+        <item>4º ESO A</item>
+        <item>4º ESO B</item>
+        <item>2º DAM</item>
+    </string-array>
 </resources>
