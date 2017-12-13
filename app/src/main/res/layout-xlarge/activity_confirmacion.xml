@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="122dp"
         android:layout_marginTop="122dp"
-        app:cardBackgroundColor="@android:color/background_light"
+        app:cardBackgroundColor="@color/white"
         app:cardElevation="24dp">
 
         <RelativeLayout
@@ -42,9 +42,9 @@
                 android:layout_marginTop="21dp"
                 android:text="¿Desea seleccionar esta imagen?"
                 android:textAlignment="center"
-                android:textColor="@android:color/black"
+                android:textColor="@color/gris"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                 />
 
             <Button
                 android:id="@+id/cancelar"
@@ -59,7 +59,7 @@
                 android:layout_marginStart="30dp"
                 android:text="Cancelar"
                 android:textColor="@color/azulOscuro"
-                android:textSize="24sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <Button
@@ -74,7 +74,7 @@
                 android:layout_marginRight="30dp"
                 android:text="Aceptar"
                 android:textColor="@color/azulOscuro"
-                android:textSize="24sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>

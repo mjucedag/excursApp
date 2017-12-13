@@ -244,8 +244,14 @@ public class EditarActividad extends AppCompatActivity implements ContratoEditar
 
             }
         });
-        builder.create();
-        builder.show();
+        android.app.AlertDialog alert = builder.create();
+        alert.show();
+        Button b = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+        b.setTextColor(EditarActividad.this.getResources().getColor(R.color.azulAlertDialog));
+        b.setTextSize(20);
+        Button b1 = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+        b1.setTextColor(EditarActividad.this.getResources().getColor(R.color.azulAlertDialog));
+        b1.setTextSize(20);
     }
 
     private void setOnClickInProfesores() {
@@ -287,8 +293,14 @@ public class EditarActividad extends AppCompatActivity implements ContratoEditar
 
             }
         });
-        builder.create();
-        builder.show();
+        android.app.AlertDialog alert = builder.create();
+        alert.show();
+        Button b = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+        b.setTextColor(EditarActividad.this.getResources().getColor(R.color.azulAlertDialog));
+        b.setTextSize(20);
+        Button b1 = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+        b1.setTextColor(EditarActividad.this.getResources().getColor(R.color.azulAlertDialog));
+        b1.setTextSize(20);
     }
 
 
