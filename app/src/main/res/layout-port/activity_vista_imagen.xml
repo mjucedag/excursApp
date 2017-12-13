@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".vista.VistaImagenes">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark"
+        tools:layout_editor_absoluteX="8dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        tools:layout_editor_absoluteY="0dp" />
+
     <ListView
         android:id="@+id/listview"
         android:layout_width="match_parent"

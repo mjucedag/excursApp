@@ -8,7 +8,6 @@
     android:backgroundTint="@color/celeste"
     tools:context=".vista.EditarActividad">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,8 +20,10 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="400px"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
                 app:srcCompat="@mipmap/sinfoto" />
 
             <TextView
@@ -31,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/imageView"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="100dp"
                 android:layout_marginTop="10dp"
                 android:text="Campos obligatorios(*)"
                 android:textColor="@android:color/black"
@@ -43,7 +44,7 @@
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/imageView"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="100dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/azulOscuro"
                 android:text="@string/insertar"
@@ -59,8 +60,8 @@
                 android:layout_height="70dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/insertarImagen"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
                 android:layout_marginTop="5dp">
 
                 <android.support.design.widget.TextInputEditText
@@ -68,6 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Titulo de la Actividad*"
+                    android:maxLength="40"
                     android:textColor="@android:color/black" />
             </android.support.design.widget.TextInputLayout>
 
@@ -77,8 +79,8 @@
                 android:layout_height="70dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textInputLayout"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
                 android:layout_marginTop="5dp">
 
                 <android.support.design.widget.TextInputEditText
@@ -86,6 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="@string/Lugar"
+                    android:maxLength="70"
                     android:textColor="@android:color/black" />
             </android.support.design.widget.TextInputLayout>
 
@@ -95,8 +98,8 @@
                 android:layout_height="70dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textInputLayout3"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
                 android:layout_marginTop="5dp">
 
                 <android.support.design.widget.TextInputEditText
@@ -106,7 +109,8 @@
                     android:layout_above="@+id/profesores"
                     android:layout_alignParentStart="true"
                     android:layout_weight="1"
-                    android:hint="Dirección*" />
+                    android:hint="Dirección*"
+                    android:maxLength="40" />
             </android.support.design.widget.TextInputLayout>
 
             <TextView
@@ -115,8 +119,8 @@
                 android:layout_height="70dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textInputLayout4"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
                 android:layout_marginTop="10dp"
                 android:gravity="top"
                 android:textColor="@android:color/black"
@@ -129,8 +133,8 @@
                 android:layout_height="70dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/profesores"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
                 android:layout_marginTop="10dp"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
@@ -142,8 +146,8 @@
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/grupos"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:hint="Fecha de salida*"
@@ -156,7 +160,7 @@
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/fechaSalida"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="100dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:hint="Hora de Salida*"
@@ -170,7 +174,7 @@
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/fechaSalida"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="100dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:hint="Hora de Llegada*"
@@ -183,8 +187,9 @@
                 android:layout_height="150dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/HoraSalida"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
                 android:layout_marginTop="5dp">
 
                 <android.support.design.widget.TextInputEditText
@@ -192,11 +197,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
                     android:gravity="top"
-                    android:hint="Descripción*" />
+                    android:hint="Descripción*"
+                    android:maxLength="100" />
             </android.support.design.widget.TextInputLayout>
 
         </RelativeLayout>
     </ScrollView>
-
-
 </RelativeLayout>
