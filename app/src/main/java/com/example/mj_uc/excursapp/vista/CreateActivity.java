@@ -75,7 +75,7 @@ public class CreateActivity extends AppCompatActivity implements ContratoCreateA
         insertarImagen = (Button) findViewById(R.id.insertarImagen);
         fechaSalida = (TextView) findViewById(R.id.fechaSalida);
         HoraSalida = (TextView) findViewById(R.id.horaSalida);
-        HoraLlegada = (TextView) findViewById(R.id.HoraLlegada);
+        HoraLlegada = (TextView) findViewById(R.id.horaLlegada);
         // INSTANCIAMOS EL CALENDARIO
         dateTime = Calendar.getInstance();
         day = dateTime.get(Calendar.DAY_OF_MONTH);

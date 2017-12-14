@@ -70,7 +70,9 @@
                     android:layout_height="50dp"
                     android:hint="Titulo de la Actividad*"
                     android:maxLength="40"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -89,7 +91,9 @@
                     android:layout_height="50dp"
                     android:hint="@string/Lugar"
                     android:maxLength="70"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -110,7 +114,9 @@
                     android:layout_alignParentStart="true"
                     android:layout_weight="1"
                     android:hint="Dirección*"
-                    android:maxLength="40" />
+                    android:maxLength="40"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
             <TextView
@@ -186,7 +192,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/HoraSalida"
+                android:layout_below="@+id/horaSalida"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="100dp"
                 android:layout_marginRight="100dp"
@@ -198,7 +204,9 @@
                     android:layout_height="130dp"
                     android:gravity="top"
                     android:hint="Descripción*"
-                    android:maxLength="100" />
+                    android:maxLength="100"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"/>
             </android.support.design.widget.TextInputLayout>
 
         </RelativeLayout>
