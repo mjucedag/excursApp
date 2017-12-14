@@ -68,7 +68,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="Titulo de la Actividad*"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -86,7 +88,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="@string/Lugar"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -106,7 +110,9 @@
                     android:layout_above="@+id/profesores"
                     android:layout_alignParentStart="true"
                     android:layout_weight="1"
-                    android:hint="Dirección*" />
+                    android:hint="Dirección*"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
             <TextView
@@ -191,8 +197,9 @@
                     android:id="@+id/descripcion"
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
-                    android:gravity="top"
-                    android:hint="Descripción*" />
+                    android:inputType="text"
+                    android:hint="Descripción*"
+                    android:imeOptions="actionDone"/>
             </android.support.design.widget.TextInputLayout>
 
         </RelativeLayout>

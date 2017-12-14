@@ -8,166 +8,205 @@
     android:backgroundTint="@color/celeste"
     tools:context=".vista.CreateActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_alignParentLeft="true"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        app:srcCompat="@mipmap/sinfoto" />
+        android:layout_alignParentTop="true">>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/insertarImagen"
-        android:layout_alignBottom="@+id/insertarImagen"
-        android:layout_alignStart="@+id/tituloAct"
-        android:layout_marginLeft="10dp"
-        android:text="@string/campos"
-        android:textColor="@android:color/black"
-        android:textStyle="bold" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="800dp">
 
-    <Button
-        android:id="@+id/insertarImagen"
-        android:layout_width="180dp"
-        android:layout_height="40dp"
-        android:layout_alignEnd="@+id/lugarActividad"
-        android:layout_below="@+id/imageView"
-        android:layout_marginRight="10dp"
-        android:backgroundTint="@color/azulOscuro"
-        android:text="@string/insertar"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@android:color/background_light" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="400px"
+                app:srcCompat="@mipmap/sinfoto" />
 
-    <EditText
-        android:id="@+id/tituloAct"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/insertarImagen"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:drawableTint="@color/azulOscuro"
-        android:ems="10"
-        android:foregroundTintMode="screen"
-        android:hint="@string/titAct"
-        android:inputType="textPersonName"
-        android:maxLength="50"
-        android:paddingLeft="3dp"
-        android:textColor="@android:color/black" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/imageView"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Campos obligatorios(*)"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/lugarActividad"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignStart="@+id/direccion"
-        android:layout_below="@+id/tituloAct"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:ems="10"
-        android:hint="Lugar de la Actividad*"
-        android:inputType="textPersonName"
-        android:maxLength="50"
-        android:textColor="@android:color/black" />
+            <Button
+                android:id="@+id/insertarImagen"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/imageView"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/azulOscuro"
+                android:text="@string/insertar"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@android:color/background_light"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/direccion"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/profesores"
-        android:layout_alignStart="@+id/profesores"
-        android:layout_below="@+id/lugarActividad"
-        android:ems="10"
-        android:hint="Dirección*"
-        android:inputType="textPersonName"
-        android:maxLength="50"
-        android:textColor="@android:color/black" />
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/insertarImagen"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp">
 
-    <TextView
-        android:id="@+id/fechaSalida"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/grupos"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:ems="10"
-        android:hint="Fecha de Salida*"
-        android:inputType="date"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/tituloAct"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Titulo de la Actividad*"
+                    android:textColor="@android:color/black"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+            </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/horaSalida"
-        android:layout_width="160dp"
-        android:layout_height="30dp"
-        android:layout_above="@+id/descripcion"
-        android:layout_alignStart="@+id/fechaSalida"
-        android:layout_marginBottom="7dp"
-        android:ems="10"
-        android:hint="Hora de Salida*"
-        android:inputType="date"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textInputLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textInputLayout"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp">
 
-    <TextView
-        android:id="@+id/HoraLlegada"
-        android:layout_width="160dp"
-        android:layout_height="30dp"
-        android:layout_alignBaseline="@+id/horaSalida"
-        android:layout_alignBottom="@+id/horaSalida"
-        android:layout_alignEnd="@+id/insertarImagen"
-        android:ems="10"
-        android:hint="Hora de Llegada*"
-        android:inputType="date"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/lugarActividad"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/Lugar"
+                    android:textColor="@android:color/black"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+            </android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:id="@+id/descripcion"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/horaSalida"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"
-        android:ems="10"
-        android:gravity="top|center_vertical"
-        android:hint="Descripción*"
-        android:inputType="textPersonName"
-        android:maxLength="60"
-        android:textStyle="bold" />
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textInputLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textInputLayout3"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp">
 
-    <TextView
-        android:id="@+id/profesores"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/direccion"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:text="Profesores*"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/direccion"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_above="@+id/profesores"
+                    android:layout_alignParentStart="true"
+                    android:layout_weight="1"
+                    android:hint="Dirección*"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+            </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/grupos"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/profesores"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:text="Grupos*"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/profesores"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textInputLayout4"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top"
+                android:text="Profesores*"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/grupos"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/profesores"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Grupos*"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/fechaSalida"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/grupos"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:hint="Fecha de salida*"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/horaSalida"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/fechaSalida"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:hint="Hora de Salida*"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/horaLlegada"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/fechaSalida"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:hint="Hora de Llegada*"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/horaSalida"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/descripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:gravity="top"
+                    android:hint="Descripción*"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"/>
+            </android.support.design.widget.TextInputLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
 
 </RelativeLayout>
