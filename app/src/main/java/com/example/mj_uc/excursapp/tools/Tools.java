@@ -68,7 +68,7 @@ public class Tools {
             try{
                 Integer idProfesor = actividad.getProfesores().get(0);//controla el null
                 nombreProfesor = getNombreProfesor(objectJsons, idProfesor);
-            }catch (IndexOutOfBoundsException ex){
+            }catch (Exception ex){
                 nombreProfesor = "";
             }
 

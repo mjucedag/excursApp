@@ -76,9 +76,9 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         actividad.setGrupos(devIdGrupo());
         actividad.setProfesores(devIdProfesor());
 
-        if(editarActividad.getIntent().getExtras() != null && editarActividad.getIntent().getExtras().getString("nombre") != null){
+        if (editarActividad.getIntent().getExtras() != null && editarActividad.getIntent().getExtras().getString("nombre") != null) {
             actividad.setImg(editarActividad.getIntent().getExtras().getString("nombre"));
-        }else{
+        } else {
             actividad.setImg(editarActividad.getNameImagen());
         }
 
@@ -87,7 +87,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         Toast.makeText(editarActividad, "...", Toast.LENGTH_SHORT).show();
 
         typeResponseService = PresentadorEditarActividad.CREATE_ACTIVITY;
-        APIConnection.getConnection("https://apirest-mjuceda.c9users.io/actividad/"+idActividad, WebRequest.PUTRequest, this, jsonString);
+        APIConnection.getConnection("https://apirest-mjuceda.c9users.io/actividad/" + idActividad, WebRequest.PUTRequest, this, jsonString);
     }
 
     @Override
@@ -118,7 +118,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         Intent i = editarActividad.getIntent();
         Bundle b = i.getExtras();
 
-        if (b != null){
+        if (b != null) {
             idActividad = b.getInt("idActividad");
 
             typeResponseService = PresentadorEditarActividad.PREPARE_VIEW;
@@ -134,7 +134,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         Intent i = editarActividad.getIntent();
         Bundle b = i.getExtras();
 
-        if (b != null){
+        if (b != null) {
             idActividad = b.getInt("idActividad");
 
             typeResponseService = PresentadorEditarActividad.GET_JSON_DATA;
@@ -166,7 +166,43 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         editarActividad.setProfesoresArray(getArrayNombreProfesores());
         // DEVUELVE EL ARRAY DE GRUPOS
         editarActividad.setGrupo(getArrayNombreGrupos());
+
+        setNombreProfesores();
+        setNombreGrupos();
     }
+
+    private void setNombreGrupos() {
+
+        List<Grupo> NOMBREGRUPO = editarActividad.getObjectJson().getGrupo();
+        String nombreGruposInText = editarActividad.getGrupos().getText().toString();
+
+        if(Tools.isEmpty(nombreGruposInText)) {
+            return;
+        }
+
+        for (Grupo grupo : NOMBREGRUPO) {
+            if (nombreGruposInText.contains(grupo.getNombre())) {
+                editarActividad.getNombresGrupos().add(grupo.getNombre());
+            }
+        }
+    }
+
+    private void setNombreProfesores() {
+        List<Profesor> NOMBREPRFESOR = editarActividad.getObjectJson().getProfesor();
+        String nombrePreofesoresInText = editarActividad.getProfesores().getText().toString();
+
+        if(Tools.isEmpty(nombrePreofesoresInText)) {
+            return;
+        }
+
+        for (Profesor profesor : NOMBREPRFESOR) {
+            if (nombrePreofesoresInText.contains(profesor.getNombre())) {
+                editarActividad.getNombresProfesores().add(profesor.getNombre());
+            }
+        }
+    }
+
+
 
     private void onCreateViewResponseService(String response) {
         Toast.makeText(editarActividad, "¡EDITADO CON EXITO!", Toast.LENGTH_LONG).show();
@@ -188,8 +224,8 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         //Get the actividad selected to be edited
         Actividad actividades = editarActividad.getActividades();
 
-        for(Actividad a : editarActividad.getObjectJson().getActividad()) {
-            if(a.getId() == idActividad) {
+        for (Actividad a : editarActividad.getObjectJson().getActividad()) {
+            if (a.getId() == idActividad) {
                 actividades = a;
                 break;
             }
@@ -214,7 +250,7 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
 
         setProfesoresChecked();
         setGruposChecked();
-        
+
         // DEVUELVE EL ARRAY DE PROFESORES
         editarActividad.setProfesoresArray(getArrayNombreProfesores());
         // DEVUELVE EL ARRAY DE GRUPOS
@@ -226,13 +262,13 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
         List<Grupo> NOMBREGRUPO = editarActividad.getObjectJson().getGrupo();
         for (Grupo grupo : NOMBREGRUPO) {
             for (int i = 0; i < editarActividad.getIdGrupos().size(); i++) {
-                if (grupo.getId() == editarActividad.getIdGrupos().get(i)){
+                if (grupo.getId() == editarActividad.getIdGrupos().get(i)) {
                     editarActividad.getGrupos().setText(editarActividad.getGrupos().getText() + " , " + grupo.getNombre());
                     editarActividad.getNombresGrupos().add(grupo.getNombre());
                 }
             }
         }
-        if (Tools.isEmpty(editarActividad.getGrupos().getText())){
+        if (Tools.isEmpty(editarActividad.getGrupos().getText())) {
             editarActividad.getGrupos().setText("Grupos*");
         }
     }
@@ -240,15 +276,15 @@ public class PresentadorEditarActividad implements ContratoEditarActividad.Prese
     private void setProfesoresChecked() {
 
         List<Profesor> NOMBREPRFESOR = editarActividad.getObjectJson().getProfesor();
-        for (Profesor profesor: NOMBREPRFESOR) {
+        for (Profesor profesor : NOMBREPRFESOR) {
             for (int i = 0; i < editarActividad.getIdprofesor().size(); i++) {
-                if (profesor.getId()== editarActividad.getIdprofesor().get(i)){
+                if (profesor.getId() == editarActividad.getIdprofesor().get(i)) {
                     editarActividad.getProfesores().setText(editarActividad.getProfesores().getText() + " " + profesor.getNombre());
                     editarActividad.getNombresProfesores().add(profesor.getNombre());
                 }
             }
         }
-        if (Tools.isEmpty(editarActividad.getProfesores().getText())){
+        if (Tools.isEmpty(editarActividad.getProfesores().getText())) {
             editarActividad.getProfesores().setText("Profesores*");
         }
     }
